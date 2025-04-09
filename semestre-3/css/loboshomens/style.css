@@ -1,0 +1,55 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Garante que tudo fique centralizado */
+    background-color: #222; /* Cor de fundo para destacar */
+    position: relative;
+}
+
+iframe {
+    opacity: calc(100% - 10%);
+}
+/* Caixa de fundo (card) que fica atrás */
+.card {
+    position: absolute; /* Faz a div flutuar */
+    height: 415px;
+    width: 415px;
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%);
+    border-radius: 10px;
+    z-index: -1; /* Faz com que fique atrás da `.content` */
+}
+
+/* Caixa principal */
+.content {
+    color: rgb(7, 0, 24);
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    height: 400px;
+    width: 400px;
+    background-image: url("images.jpg"); /* Certifique-se do caminho correto */
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    position: relative; /* Permite sobreposição com o z-index */
+    z-index: 2; /* Mantém essa div na frente */
+    border-radius: 10px;
+}
+
+/* Criando a borda gradiente */
+.content::before {
+    content: "";
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    right: -5px;
+    bottom: -5px;
+    z-index: -1; /* Coloca a borda atrás */
+}

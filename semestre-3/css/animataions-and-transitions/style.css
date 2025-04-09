@@ -1,0 +1,45 @@
+h1{
+    text-align: center;
+
+}
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.imagem,.imagem:hover {
+    width: 30%px;
+    height: 40%px;
+    animation: girar 6s linear infinite;
+}
+.imagem:hover {
+    animation: girarReverso 6s linear infinite;
+}
+
+
+
+@keyframes girar {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(100deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes girarReverso {
+    from {
+        transform: rotate(360deg);
+    }
+    to {
+        transform: rotate(100deg);
+    }
+    to {
+        transform: rotate(0deg);
+    }
+}
