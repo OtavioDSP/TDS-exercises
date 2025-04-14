@@ -8,7 +8,6 @@ if(isset($_POST['enviar'])){
     $nome = $_POST['nome_con'];
     $email = $_POST['email'];
     $msg = $_POST['desc_con'];
-    $listar = $_POST['listar'];
 
     $cont = new contato($nome, $email,$msg,$conexao);
     $cont->insereContato();
