@@ -2,12 +2,15 @@
 
 class contato{
 
+    private $cod;
     private $nome_con;
     private $email;
     private $desc_con;
     private $conexao;
 
-    public function __construct($nome_con, $email, $desc_con, $conexao){
+    public function __construct($cod, $nome_con, $email, $desc_con, $conexao){
+
+        $this->cod = $cod;
         $this->nome_con = $nome_con;
         $this->email = $email;
         $this->desc_con = $desc_con;
@@ -55,6 +58,10 @@ class contato{
 
         }
 
+    }
+    public function deletarContato(){
+        $sql = "DELETE FROM tb_contato WHERE id = (?)";
+        $del = $conexao->exec($sql);
 
 
 

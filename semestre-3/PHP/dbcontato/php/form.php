@@ -9,14 +9,23 @@ if(isset($_POST['enviar'])){
     $email = $_POST['email'];
     $msg = $_POST['desc_con'];
 
-    $cont = new contato($nome, $email,$msg,$conexao);
+    $cont = new contato($cod,$nome, $email,$msg,$conexao);
     $cont->insereContato();
 }
 if(isset($_POST['listar'])) {
 
-    $nome=""; $email=""; $msg="";
-    $cont = new contato($nome, $email,$msg,$conexao);
+    $cod=""; $nome=""; $email=""; $msg="";
+    $cont = new contato($cod,$nome, $email,$msg,$conexao);
     $cont->listarContatos();
+}
+if(isset($_POST['deletar'])){
+    $cod= $_POST['id_cont'];
+    $nome=""; $email=""; $msg="";
+    $cont = new contato($cod,$nome, $email,$msg,$conexao);
+    $cont->listarContatos();
+
+
+
 }
 
 
