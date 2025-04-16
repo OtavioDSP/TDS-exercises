@@ -59,14 +59,31 @@ class contato{
         }
 
     }
-    public function deletarContato(){
-        $sql = "DELETE FROM tb_contato WHERE id = (?)";
-        $del = $conexao->exec($sql);
+    public function listarContatosCheck($cod){
+        $sql = "DELETE FROM tb_contato WHERE id = $cod";
 
+        $resultado = $this->conexao->query($sql);
+        if($resultado->num_rows>0){
+            echo "<h3>Listagem de Diretores:<h3><table>";
+            echo "<form action='' method='post'>";
+            echo "<th>nome</th> <th>email</th> <th>msg</th>";
+            foreach($resultado as $row){
+                $nm = $row['nome'];
+                $em = $row['email'];
+                $msg = $row['msg'];
+                echo "<tr>
+                
+                <td>$nm</td> 
+                <td>$em</td>
+                <td>$msg</td>
+                
+                
+                </tr>";
 
+            }
+
+        }
 
     }
-
 }
-
 ?>
