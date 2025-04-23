@@ -18,7 +18,7 @@ class Cliente{
         $sql = "INSERT INTO tb_cliente(nome, cpf, endereco) VALUES (?,?,?)";
         
         $stmt = $this->conexao->prepare($sql);
-        $stmt->bind_param('sss', $this->nome_cli, $this->cpf_cli, $this->endereco_cli);
+        $stmt->bind_param('sss', $this->nome, $this->cpf, $this->endereco);
         if($stmt->execute()){
             echo "cliente inserido";
 
