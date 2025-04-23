@@ -15,7 +15,7 @@ class Cliente{
         $this->conexao = $conexao;
     }
     public function insereCliente(){
-        $sql = "INSERT INTO tb_cliente(nome, cpf, endereco) VALUES (?,?,?)";
+        $sql = "INSERT INTO tbcliente(cliente_nome, cliente_cpf, cliente_endereco) VALUES (?,?,?)";
         
         $stmt = $this->conexao->prepare($sql);
         $stmt->bind_param('sss', $this->nome, $this->cpf, $this->endereco);
@@ -35,16 +35,17 @@ class Cliente{
     Public function listarCliente(){
 
 
-        $sql = "SELECT cliente_nome, cliente_cpf , cliente_endereco FROM tbclientes";
-
+        $sql = "SELECT cliente_nome, cliente_cpf, cliente_endereco FROM tbcliente";
+        
         $resultado = $this->conexao->query($sql);
         if ($resultado->num_rows>0) {
             echo "<h3>Listagem de clientes</h3><table>";
-            echo "<th>nome</th><th>CPF</th><th>endereço</th>";
+            echo "<th>nome</th> <th>CPF</th> <th>endereço</th>";
+
             foreach($resultado as $row){
-                $nm = $row['nome'];
-                $cpf = $row['email'];
-                $end = $row['msg'];
+                $nm = $row['cliente_nome'];
+                $cpf = $row['cliente_cpf'];
+                $end = $row['cliente_endereco'];
                 echo "<tr>
                 
                 <td>$nm</td> 

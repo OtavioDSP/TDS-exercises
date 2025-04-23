@@ -3,7 +3,7 @@ $host ="localhost";
 $password ="";  
 $user ="root"; 
 $db = "bdautolocadora2025";
-$conexao = new mysqli($host, $password, $user, $db);
+$conexao = new mysqli($host, $user, $password, $db);
 
 
 if($conexao->connect_errno){

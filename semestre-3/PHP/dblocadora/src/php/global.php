@@ -13,5 +13,5 @@ if(isset($_POST['cadastrar-cliente'])){
 if(isset($_POST['Listar']))
 $nome="";$endereco="";$cpf='';
 $cliente = new Cliente($nome, $cpf, $endereco, $conexao);
-$cliente-> listarCliente();
+$cliente->listarCliente();
 ?>
