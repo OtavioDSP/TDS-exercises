@@ -1,14 +1,15 @@
 <?php 
 
 Class Veiculo{
-    private $veiculo_Desc;
+    private $veiculoDesc;
     private $veiculoPlaca;
-    private $veiculo_Marca;
+    private $veiculoMarca;
+    private $conexao;
 
-    public function __construct($veiculo_Desc,$veiculo_Marca, $veiculoPlaca)
+    public function __construct($veiculo_Desc, $veiculo_Marca, $veiculoPlaca, $conexao)
     {
-        $this->veiculo_Desc= $veiculo_Desc;
-        $this->veiculo_Marca = $veiculo_Marca;
+        $this->veiculoDesc= $veiculo_Desc;
+        $this->veiculoMarca = $veiculo_Marca;
         $this->veiculoPlaca = $veiculoPlaca;
         
 
@@ -18,8 +19,13 @@ Class Veiculo{
         $sql = "INSERT INTO tbveiculo(veiculo_placa, veiculo_descricao, veiculo_marca) VALUES (?,?,?)";
 
         $stmt = $this->conexao->prepare($sql);
+        $stmt->bind_param('sis', $this->veiculoDesc, $this->veiculoPlaca, $this->veiculoMarca);
+        if($stmt->execute()){
+            echo "carro inserido";
 
-        $stmt->bind_param('sis', $this->veiculo_descricao, $this->veiculo_placa, $this->veiculo_marca);
+
+
+        }
 
 
 
