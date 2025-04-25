@@ -1,6 +1,8 @@
 <?php
-include_once 'ClassCliente.php';
 include_once 'dbconnect.php';
+include_once 'ClassCliente.php';
+include_once 'Class-Veiculo.php';
+
 if(isset($_POST['cadastrar-cliente'])){
     $nome = $_POST['nome-cliente'];
     $cpf = $_POST['cliente-cpf'];
@@ -11,9 +13,27 @@ if(isset($_POST['cadastrar-cliente'])){
     
 }
 
-if(isset($_POST['Listar']))
-$nome="";$endereco="";$cpf='';
-$cliente = new Cliente($nome, $cpf, $endereco, $conexao);
-$cliente->listarCliente();
+if(isset($_POST['Listar'])){
+    $nome="";$endereco="";$cpf='';
+    $cliente = new Cliente($nome, $cpf, $endereco, $conexao);
+    $cliente->listarCliente();
+
+
+}
+
+
+if(isset($_POST['cadastrar-carro'])){
+
+    $carro_desc = $_POST['carro_desc'];
+    $carro_marca = $_POST['carro_marca'];
+    $carro_placa = $_POST['carro_placa'];
+    $carro_desc; $carro_placa; $carro_marca;
+    $cliente = new Veiculo($carro_desc, $carro_marca, $carro_placa, $conexao);
+    $cliente->inserirVeiculo();
+
+}
+
+
+
 
 ?>

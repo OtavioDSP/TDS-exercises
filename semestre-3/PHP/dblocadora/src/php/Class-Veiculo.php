@@ -11,6 +11,7 @@ Class Veiculo{
         $this->veiculoDesc= $veiculo_Desc;
         $this->veiculoMarca = $veiculo_Marca;
         $this->veiculoPlaca = $veiculoPlaca;
+        $this->conexao = $conexao;
         
 
     }

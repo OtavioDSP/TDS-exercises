@@ -14,6 +14,7 @@ class Cliente{
         $this->endereco= $endereco;
         $this->conexao = $conexao;
     }
+    
     public function insereCliente(){
         $sql = "INSERT INTO tbcliente(cliente_nome, cliente_cpf, cliente_endereco) VALUES (?,?,?)";
         

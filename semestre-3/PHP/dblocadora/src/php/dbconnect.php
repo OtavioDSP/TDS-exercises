@@ -2,7 +2,7 @@
 $host ="localhost";
 $password ="";  
 $user ="root"; 
-$db = "bdautolocadora2025";
+$db = "autolocadora";
 $conexao = new mysqli($host, $user, $password, $db);
 
 
