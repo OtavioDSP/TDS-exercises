@@ -29,8 +29,34 @@ Class Veiculo{
         }
 
 
-
     }
+    public function listarVeiculos(){
+        $sql = "SELECT veiculo_placa, veiculo_marca, veiculo_descricao FROM tbveiculo";
+        $resultado = $this->conexao->query($sql);
+        if ($resultado->num_rows>0) {
+            echo "<h3>Listagem de carros</h3><table>";
+            echo "<th>Carro</th> <th>Descrição</th> <th>Marca</th>";
+
+            foreach($resultado as $row){
+                $desc = $row['veiculo_descricao'];
+                $plc = $row['veiculo_placa'];
+                $marca = $row['veiculo_marca'];
+                echo "<br>
+                
+                <td>$desc</td> 
+                <td>$plc</td>
+                <td>$marca</td>
+                
+                
+                </tr>";
+            }
+
+
+
+            
+        }
+    }
+} 
 
 
 
@@ -38,7 +64,7 @@ Class Veiculo{
 
 
 
-}
+
 
 
 

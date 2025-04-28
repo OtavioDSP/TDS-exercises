@@ -50,12 +50,11 @@ class Cliente{
                 echo "<tr>
                 
                 <td>$nm</td> 
-                <td>$cpf/td>
+                <td>$cpf</td>
                 <td>$end</td>
                 
                 
                 </tr>";
-                echo "</table>";
             }
 
                 
