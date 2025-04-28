@@ -13,7 +13,7 @@ if(isset($_POST['cadastrar-cliente'])){
     
 }
 
-if(isset($_POST['Listar'])){
+if(isset($_POST['listar-cliente'])){
     $nome="";$endereco="";$cpf='';
     $cliente = new Cliente($nome, $cpf, $endereco, $conexao);
     $cliente->listarCliente();
@@ -31,11 +31,15 @@ if(isset($_POST['cadastrar-carro'])){
     $cliente = new Veiculo($carro_desc, $carro_marca, $carro_placa, $conexao);
     $cliente->inserirVeiculo();
 
-}if(isset($_POST['listar-carro']))
-
+}if(isset($_POST['listar-carro'])){
+    
 $carro_desc = ""; $carro_placa=""; $carro_marca="";
 $carro = new Veiculo($carro_desc, $carro_marca, $carro_placa, $conexao);
 $carro->listarVeiculos();
+
+
+}
+
 
 
 

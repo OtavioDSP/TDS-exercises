@@ -20,11 +20,15 @@ Class Veiculo{
         $sql = "INSERT INTO tbveiculo(veiculo_placa, veiculo_descricao, veiculo_marca) VALUES (?,?,?)";
 
         $stmt = $this->conexao->prepare($sql);
-        $stmt->bind_param('sis', $this->veiculoDesc, $this->veiculoPlaca, $this->veiculoMarca);
+        $stmt->bind_param('sss', $this->veiculoDesc, $this->veiculoPlaca, $this->veiculoMarca);
         if($stmt->execute()){
+
+
             echo "carro inserido";
 
+        }else{
 
+            echo "erro ao inserir". $stmt->error;
 
         }
 
