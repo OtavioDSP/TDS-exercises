@@ -22,6 +22,8 @@ class contato{
         $stmt = $this->conexao->prepare($sql);
         $stmt->bind_param('sss', $this->nome_con, $this->email, $this->desc_con);
         if($stmt->execute()){
+
+            
         echo "contato inserido";
 
 

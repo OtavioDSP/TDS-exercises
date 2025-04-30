@@ -28,17 +28,18 @@ if(isset($_POST['cadastrar-carro'])){
     $carro_marca = $_POST['carro_marca'];
     $carro_placa = $_POST['carro_placa'];
     $carro_desc; $carro_placa; $carro_marca;
-    $cliente = new Veiculo($carro_desc, $carro_marca, $carro_placa, $conexao);
+    $cliente = new Veiculo($carro_placa, $carro_marca, $carro_desc, $conexao);
     $cliente->inserirVeiculo();
 
 }if(isset($_POST['listar-carro'])){
     
-$carro_desc = ""; $carro_placa=""; $carro_marca="";
-$carro = new Veiculo($carro_desc, $carro_marca, $carro_placa, $conexao);
-$carro->listarVeiculos();
+    $carro_desc = ""; $carro_placa=""; $carro_marca="";
+    $carro = new Veiculo($carro_placa, $carro_marca, $carro_desc, $conexao);
+    $carro->listarVeiculos();
 
 
 }
+
 
 
 

@@ -18,9 +18,13 @@ Class Veiculo{
 
     public function inserirVeiculo(){
         $sql = "INSERT INTO tbveiculo(veiculo_placa, veiculo_descricao, veiculo_marca) VALUES (?,?,?)";
-
+        echo "$this->veiculoMarca";
+        echo "$this->veiculoDesc";
+        echo "$this->veiculoPlaca";
         $stmt = $this->conexao->prepare($sql);
-        $stmt->bind_param('sss', $this->veiculoDesc, $this->veiculoPlaca, $this->veiculoMarca);
+        echo "deu";
+        $stmt->bind_param('ssi', $this->veiculoDesc, $this->veiculoPlaca, $this->veiculoMarca);
+        echo "$sql";
         if($stmt->execute()){
 
 
@@ -28,7 +32,7 @@ Class Veiculo{
 
         }else{
 
-            echo "erro ao inserir". $stmt->error;
+            echo "erro ao inserir ". $stmt->error;
 
         }
 
