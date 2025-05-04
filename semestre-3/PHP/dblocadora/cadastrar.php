@@ -59,6 +59,63 @@ include_once 'src/php/dbconnect.php';
     </form>
 
 
+    <form action="src/php/global.php" method="post">
+    <h3>Cadastrar Locação</h3>
+    <select name="cliente_loc" id="">
+    <option value=""> Informe o Cliente</option>
+        <?php
+        
+        $sql = "SELECT cliente_nome, cliente_cpf FROM tbcliente";
+            
+            
+            $resultado = $conexao->query($sql);
+            if ($resultado->num_rows>0) {
+               foreach($resultado as $row){
+                   
+                    $nome = $row['cliente_nome'];
+                    $cpf = $row['cliente_cpf'];
+
+                    echo "<option value='$cpf'>$nome</option>";
+                }
+    
+            }
+        
+        
+        
+        
+        ?>
+        </select>
+        
+        
+        <select name="cliente_loc" id="">
+        <option value=""> Informe o Veiculo</option>
+        <?php
+        
+        $sql = "SELECT veiculo_placa, veiculo_descricao FROM tbveiculo";
+            
+            
+            $resultado = $conexao->query($sql);
+            if ($resultado->num_rows>0) {
+               foreach($resultado as $row){
+                   
+                    $veiculo = $row['veiculo_descricao'];
+                    $placa = $row['veiculo_placa'];
+
+                    echo "<option value='$placa'>$veiculo - $placa</option>";
+                }
+    
+            }
+       
+        
+        
+        
+        ?>
+     </select>
+
+
+    </form>
+
+
     
 </body>
 </html>

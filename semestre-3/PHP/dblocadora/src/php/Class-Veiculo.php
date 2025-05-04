@@ -18,13 +18,8 @@ Class Veiculo{
 
     public function inserirVeiculo(){
         $sql = "INSERT INTO tbveiculo(veiculo_placa, veiculo_descricao, veiculo_marca) VALUES (?,?,?)";
-        echo "$this->veiculoMarca";
-        echo "$this->veiculoDesc";
-        echo "$this->veiculoPlaca";
         $stmt = $this->conexao->prepare($sql);
-        echo "deu";
         $stmt->bind_param('ssi', $this->veiculoDesc, $this->veiculoPlaca, $this->veiculoMarca);
-        echo "$sql";
         if($stmt->execute()){
 
 
@@ -39,25 +34,27 @@ Class Veiculo{
 
     }
     public function listarVeiculos(){
-        $sql = "SELECT veiculo_placa, veiculo_marca, veiculo_descricao FROM tbveiculo";
+        $sql = "SELECT veiculo_placa, veiculo_marca, veiculo_descricao, marca_descricao FROM tbveiculo INNER JOIN tbmarca ON tbveiculo.veiculo_marca = tbmarca.marca_codigo";
         $resultado = $this->conexao->query($sql);
         if ($resultado->num_rows>0) {
             echo "<h3>Listagem de carros</h3><table>";
-            echo "<th>Carro</th> <th>Descrição</th> <th>Marca</th>";
+            echo "<th>Carro</th> <th>Placa</th> <th>Marca</th> <th>Codigo da marca</th>";
 
             foreach($resultado as $row){
                 $desc = $row['veiculo_descricao'];
                 $plc = $row['veiculo_placa'];
-                $marca = $row['veiculo_marca'];
-                echo "<br>
+                $marca = $row['marca_descricao'];
+                $cod_marca = $row['veiculo_marca'];
+                echo "<tr>
                 
                 <td>$desc</td> 
                 <td>$plc</td>
                 <td>$marca</td>
-                
-                
-                </tr>";
+                <td>$cod_marca</td>";
             }
+
+            echo"</tr>";
+            echo "</table>";
 
 
 
