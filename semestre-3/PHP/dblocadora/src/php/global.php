@@ -2,6 +2,7 @@
 include_once 'dbconnect.php';
 include_once 'ClassCliente.php';
 include_once 'Class-Veiculo.php';
+include_once 'Class-Locacao.php';
 
 if(isset($_POST['cadastrar-cliente'])){
     $nome = $_POST['nome-cliente'];
@@ -38,6 +39,22 @@ if(isset($_POST['cadastrar-carro'])){
     $carro->listarVeiculos();
 
 
+}
+if(isset($_POST['cadastrar-locacao'])){
+    $loc_veiculo = $_POST['veiculo_loc'];
+    $loc_cliente = $_POST['cliente_loc'];
+    $loc_dt_inicio = $_POST['dt_inicio'];
+    $loc_dt_fim = $_POST['dt_fim'];
+    $locacao = new Locacao( $loc_veiculo, $loc_cliente, $loc_dt_inicio, $loc_dt_fim, $conexao);
+    $locacao->inserirLocacao();
+    echo "Locação Cadastrara com sucesso!";
+
+
+
+}if(isset($_POST['listar-locacao'])){
+    $loc_veiculo = ""; $loc_cliente = ""; $loc_dt_inicio = ""; $loc_dt_fim = "";
+    $locacao = new Locacao($loc_veiculo, $loc_cliente, $loc_dt_inicio, $loc_dt_fim, $conexao);
+    $locacao->listarLocacoes();
 }
 
 

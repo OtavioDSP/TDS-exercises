@@ -87,7 +87,7 @@ include_once 'src/php/dbconnect.php';
         </select>
         
         
-        <select name="cliente_loc" id="">
+        <select name="veiculo_loc" id="">
         <option value=""> Informe o Veiculo</option>
         <?php
         
@@ -111,8 +111,12 @@ include_once 'src/php/dbconnect.php';
         
         ?>
      </select>
+    <input type="date" name="dt_inicio" id="">
+    <input type="date" name="dt_fim" id="">
 
 
+    <input type="submit" value="cadastrar-locacao" name="cadastrar-locacao">
+    <input type="submit" value="listar-locacao" name="listar-locacao">
     </form>
 
 

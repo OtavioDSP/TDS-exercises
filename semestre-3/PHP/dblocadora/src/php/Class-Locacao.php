@@ -16,7 +16,9 @@ class Locacao {
     }
 
     public function inserirLocacao() {
-        $sql = "INSERT INTO tblocacao (locacao_veiculo, locacao_cliente, locacao_data_inicio, locacao_data_fim) VALUES (?, ?, ?, ?)";
+        $sql = "INSERT INTO tblocacao (locacao_veiculo, locacao_cliente, locacao_data_inicio, locacao_data_fim) 
+                VALUES (?, ?, ?, ?)";
+
         $stmt = $this->conexao->prepare($sql);
         $stmt->bind_param('ssss', $this->veiculoPlaca, $this->clienteCpf, $this->dataLocacao, $this->dataDevolucao);
 
@@ -26,6 +28,9 @@ class Locacao {
             echo "Erro ao inserir locação: " . $stmt->error;
         }
     }
+
+
+    
 
     public function listarLocacoes() {
         $sql = "SELECT 
@@ -90,7 +95,6 @@ class Locacao {
         }
     }
 }
-
 // $loc = new Locacao("", "", "", "", $conexao);
 // $loc->listarLocacoes();
 ?>
