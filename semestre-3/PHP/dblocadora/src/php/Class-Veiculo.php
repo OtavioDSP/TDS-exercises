@@ -23,11 +23,11 @@ Class Veiculo{
         if($stmt->execute()){
 
 
-            echo "carro inserido";
+            echo "Carro Inserido";
 
         }else{
 
-            echo "erro ao inserir ". $stmt->error;
+            echo "Erro ao Inserir ". $stmt->error;
 
         }
 
@@ -37,7 +37,7 @@ Class Veiculo{
         $sql = "SELECT veiculo_placa, veiculo_marca, veiculo_descricao, marca_descricao FROM tbveiculo INNER JOIN tbmarca ON tbveiculo.veiculo_marca = tbmarca.marca_codigo";
         $resultado = $this->conexao->query($sql);
         if ($resultado->num_rows>0) {
-            echo "<h3>Listagem de carros</h3><table>";
+            echo "<h3>Listagem de Veículos</h3><table border='1' cellpadding='5'>";
             echo "<th>Carro</th> <th>Placa</th> <th>Marca</th> <th>Codigo da marca</th>";
 
             foreach($resultado as $row){

@@ -17,27 +17,39 @@ class Marca{
         $stmt->bind_param('s', $this->nome_marca);
         if($stmt->execute()){
 
-            echo "marca inserida";
+            echo "Marca Inserida";
 
 
         }else{
 
-            echo "erro ao inserir". $stmt->error;
+            echo "Erro ao Inserir". $stmt->error;
 
         }
 
     }
+
+    public function listarMarca() {
+        $sql = "SELECT marca_codigo, marca_descricao FROM tbmarca ORDER BY marca_descricao ASC";
+        $resultado = $this->conexao->query($sql);
+    
+        if ($resultado->num_rows > 0) {
+            echo "<h3>Listagem de Marcas</h3><table border='1' cellpadding='5'>";
+            echo "<tr><th>Código</th><th>Descrição</th></tr>";
+    
+            foreach ($resultado as $row) {
+                $codigo = $row['marca_codigo'];
+                $descricao = $row['marca_descricao'] ?? 'Não informado';
+    
+                echo "<tr>
+                        <td>$codigo</td>
+                        <td>$descricao</td>
+                      </tr>";
+            }
+    
+            echo "</table>";
+        } else {
+            echo "<p>Nenhuma marca encontrada.</p>";
+        }
+    }
 }
-
-
-
-
-
-
-
-
-
-
-
-
 ?>

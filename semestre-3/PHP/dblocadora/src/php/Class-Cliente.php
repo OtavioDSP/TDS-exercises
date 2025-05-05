@@ -22,12 +22,12 @@ class Cliente{
         $stmt->bind_param('sss', $this->nome, $this->cpf, $this->endereco);
         if($stmt->execute()){
 
-            echo "cliente inserido";
+            echo "Cliente Inserido";
 
 
         }else{
 
-            echo "erro ao inserir". $stmt->error;
+            echo "Erro ao Inserir". $stmt->error;
 
         }
 
@@ -40,8 +40,8 @@ class Cliente{
         
         $resultado = $this->conexao->query($sql);
         if ($resultado->num_rows>0) {
-            echo "<h3>Listagem de clientes</h3><table>";
-            echo "<th>nome</th> <th>CPF</th> <th>endereço</th>";
+            echo "<h3>Listagem de Clientes</h3><table border='1' cellpadding='5'>";
+            echo "<th>Nome</th> <th>CPF</th> <th>Endereço</th>";
 
             foreach($resultado as $row){
                 $nm = $row['cliente_nome'];

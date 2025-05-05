@@ -7,8 +7,8 @@ include_once 'src/php/dbconnect.php';
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro Geral - Moon Runner</title>
     <link rel="stylesheet" href="src/css/cadastrarstyle.css">
-    <title>Cadastro</title>
 </head>
 <body>
 
@@ -29,21 +29,26 @@ include_once 'src/php/dbconnect.php';
     </div>
 </header>
 
-
+<!-- Container de formulários -->
 <div class="form-container">
+
+    <!-- Cliente -->
     <div class="form">
+        <h3>Cadastro de Cliente</h3>
         <form action="src/php/global.php" method="post">
             <input type="text" name="cliente-cpf" placeholder="Seu nome">
             <input type="text" name="nome-cliente" placeholder="Seu CPF">
             <input type="text" name="cliente-endereco" placeholder="Seu endereço">
             <div class="form-buttons">
                 <input type="submit" value="Cadastrar" name="cadastrar-cliente">
-                <input type="submit" value="Listar" name="listar-cliente">
+                <!-- <input type="submit" value="Listar" name="listar-cliente"> -->
             </div>
         </form>
     </div>
 
+    <!-- Carro -->
     <div class="form">
+        <h3>Cadastro de Carro</h3>
         <form action="src/php/global.php" method="post">
             <input type="text" name="carro_desc" placeholder="Carro">
             <select name="carro_marca">
@@ -60,57 +65,70 @@ include_once 'src/php/dbconnect.php';
                 }
                 ?>
             </select>
-            <input type="text" name="carro_placa" placeholder="Placa do veículo.">
+            <input type="text" name="carro_placa" placeholder="Placa do veículo">
             <div class="form-buttons">
                 <input type="submit" value="Cadastrar" name="cadastrar-carro">
-                <input type="submit" value="Listar" name="listar-carro">
+                <!-- <input type="submit" value="Listar" name="listar-carro"> -->
             </div>
         </form>
     </div>
-</div>
-            
-            
-            <select name="veiculo_loc" id="">
-            <option value=""> Informe o Veiculo</option>
-            <?php
-            
-            $sql = "SELECT veiculo_placa, veiculo_descricao FROM tbveiculo";
-                
-                
+
+    <!-- Locação -->
+    <div class="form">
+        <h3>Cadastro de Locação</h3>
+        <form action="src/php/global.php" method="post">
+            <select name="cliente_loc">
+                <option value="">Informe o Cliente</option>
+                <?php
+                $sql = "SELECT cliente_nome, cliente_cpf FROM tbcliente";
                 $resultado = $conexao->query($sql);
-                if ($resultado->num_rows>0) {
-                foreach($resultado as $row){
-                    
+                if ($resultado->num_rows > 0) {
+                    foreach($resultado as $row){
+                        $nome = $row['cliente_nome'];
+                        $cpf = $row['cliente_cpf'];
+                        echo "<option value='$cpf'>$nome</option>";
+                    }
+                }
+                ?>
+            </select>
+
+            <select name="veiculo_loc">
+                <option value="">Informe o Veículo</option>
+                <?php
+                $sql = "SELECT veiculo_placa, veiculo_descricao FROM tbveiculo";
+                $resultado = $conexao->query($sql);
+                if ($resultado->num_rows > 0) {
+                    foreach($resultado as $row){
                         $veiculo = $row['veiculo_descricao'];
                         $placa = $row['veiculo_placa'];
-
                         echo "<option value='$placa'>$veiculo - $placa</option>";
                     }
-        
                 }
-        
-            
-            
-            
-            ?>
-        </select>
-        <input type="date" name="dt_inicio" id="">
-        <input type="date" name="dt_fim" id="">
+                ?>
+            </select>
 
+            <input type="date" name="dt_inicio">
+            <input type="date" name="dt_fim"><br><br>
 
-        <input type="submit" value="cadastrar locacao" name="cadastrar-locacao">
-        <input type="submit" value="listar locacao" name="listar-locacao">
-    </form>
+            <div class="form-buttons">
+                <input type="submit" value="Cadastrar" name="cadastrar-locacao">
+                <!-- <input type="submit" value="Listar" name="listar-locacao"> -->
+            </div>
+        </form>
+    </div>
 
+    <!-- Marca -->
+    <div class="form">
+        <h3>Cadastro de Marca</h3>
+        <form action="src/php/global.php" method="post">
+            <input type="text" name="marca_nome" placeholder="Marca">
+            <div class="form-buttons">
+                <input type="submit" name="cadastrar_marca" value="Cadastrar Marca">
+            </div>
+        </form>
+    </div>
 
-    <form action="src/php/global.php" method="post">
-    <h3>cadastrar marcas</h3>
-        <input type="text" name="marca_nome" placeholder="Marca">
-        <input type="submit" name="cadastrar_marca" value="Cadastrar Marca">
+</div>
 
-    </form>
-
-
-    
 </body>
 </html>

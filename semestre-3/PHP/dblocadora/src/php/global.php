@@ -1,6 +1,6 @@
 <?php
 include_once 'dbconnect.php';
-include_once 'ClassCliente.php';
+include_once 'Class-Cliente.php';
 include_once 'Class-Veiculo.php';
 include_once 'Class-Locacao.php';
 include_once 'Class-Marca.php';
@@ -56,8 +56,10 @@ if(isset($_POST['cadastrar-locacao'])){
     $marca_desc = $_POST['marca_nome'];
     $marca = new Marca($marca_desc, $conexao);
     $marca->inserirMarca();
-
-
+}if (isset($_POST['listar-marca'])) {
+    $marca_desc = "";
+    $marca = new Marca($marca_desc, $conexao);
+    $marca->listarMarca();
 }
 
 
