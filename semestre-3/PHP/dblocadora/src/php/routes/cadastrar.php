@@ -1,5 +1,5 @@
 <?php
-include_once 'src/php/dbconnect.php';
+include_once '../config/dbconnect.php';
 ?>
 
 <!DOCTYPE html>
@@ -8,13 +8,13 @@ include_once 'src/php/dbconnect.php';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro Geral - Moon Runner</title>
-    <link rel="stylesheet" href="src/css/cadastrarstyle.css">
+    <link rel="stylesheet" href="../../css/cadastrarstyle.css">
 </head>
 <body>
 
 <header>
     <div class="header-left">
-        <img src="src/img/logo.png" alt="Logo" class="logo">
+        <img src="../../img/logo.png" alt="Logo" class="logo">
     </div>
 
     <div class="header-center">

@@ -1,5 +1,5 @@
 <?php 
-include_once 'dbconnect.php';
+
 class Locacao {
     private $veiculoPlaca;
     private $clienteCpf;
