@@ -3,6 +3,7 @@ include_once 'dbconnect.php';
 include_once 'ClassCliente.php';
 include_once 'Class-Veiculo.php';
 include_once 'Class-Locacao.php';
+include_once 'Class-Marca.php';
 
 if(isset($_POST['cadastrar-cliente'])){
     $nome = $_POST['nome-cliente'];
@@ -47,14 +48,16 @@ if(isset($_POST['cadastrar-locacao'])){
     $loc_dt_fim = $_POST['dt_fim'];
     $locacao = new Locacao( $loc_veiculo, $loc_cliente, $loc_dt_inicio, $loc_dt_fim, $conexao);
     $locacao->inserirLocacao();
-    echo "Locação Cadastrara com sucesso!";
-
-
-
 }if(isset($_POST['listar-locacao'])){
     $loc_veiculo = ""; $loc_cliente = ""; $loc_dt_inicio = ""; $loc_dt_fim = "";
     $locacao = new Locacao($loc_veiculo, $loc_cliente, $loc_dt_inicio, $loc_dt_fim, $conexao);
     $locacao->listarLocacoes();
+}if(isset($_POST['cadastrar_marca'])){
+    $marca_desc = $_POST['marca_nome'];
+    $marca = new Marca($marca_desc, $conexao);
+    $marca->inserirMarca();
+
+
 }
 
 
