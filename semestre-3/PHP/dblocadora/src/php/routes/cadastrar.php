@@ -19,8 +19,8 @@ include_once '../config/dbconnect.php';
 
     <div class="header-center">
         <nav class="nav-links">
-            <a href="index.html">Início</a>
-            <a href="verificar-veiculos.html">Verificar Registros</a>
+            <a href="../../../index.html">Início</a>
+            <a href="verificar-registros.php">Verificar Registros</a>
         </nav>
     </div>
 

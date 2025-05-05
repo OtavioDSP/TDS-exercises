@@ -21,8 +21,8 @@ include_once '../config/listagem-constructor.php'
 
     <div class="header-center">
         <nav class="nav-links">
-            <a href="index.html">Início</a>
-            <a href="cadastrar.php">Cadastrar Veículos</a>
+            <a href="../../../index.html">Início</a>
+            <a href="cadastrar.php">Cadastrar</a>
         </nav>
     </div>
 
@@ -49,18 +49,24 @@ include_once '../config/listagem-constructor.php'
 </div>
 
 <div class="form_container">
+    <div class="carros-grid">
 <?php
+        
+        $marca->listarMarca();
     
-    $marca->listarMarca();
-
-    $carro->listarVeiculos();
-    
-    $locacao->listarLocacoes();
-
-    $cliente->listarCliente();
+        $carro->listarVeiculos();
+        
 ?>
 
+    </div>
+    <div class="clientes-grid">
 
+<?php
+        $locacao->listarLocacoes();
+
+        $cliente->listarCliente();
+?>
+    </div>
 </div>
 
 
