@@ -45,7 +45,7 @@ include_once '../config/listagem-constructor.php'
 
 <?php
         $locacao->listarLocacoes();
-
+    
         $cliente->listarCliente();
 ?>
     </div>

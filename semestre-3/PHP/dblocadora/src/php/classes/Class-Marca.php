@@ -51,5 +51,6 @@ class Marca{
             echo "<p>Nenhuma marca encontrada.</p>";
         }
     }
+    public function deletarMarca($d)
 }
 ?>
