@@ -33,7 +33,7 @@ class Marca{
         $resultado = $this->conexao->query($sql);
     
         if ($resultado->num_rows > 0) {
-            echo "<h3>Listagem de Marcas</h3><table border='1' cellpadding='5'>";
+            echo "<h3>Listagem de Marcas</h3><table>";
             echo "<tr><th>Código</th><th>Descrição</th></tr>";
     
             foreach ($resultado as $row) {

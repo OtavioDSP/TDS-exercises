@@ -40,7 +40,7 @@ class Cliente{
         
         $resultado = $this->conexao->query($sql);
         if ($resultado->num_rows>0) {
-            echo "<h3>Listagem de Clientes</h3><table border='1' cellpadding='5'>";
+            echo "<h3>Listagem de Clientes</h3><table>";
             echo "<th>Nome</th> <th>CPF</th> <th>Endereço</th>";
 
             foreach($resultado as $row){

@@ -73,18 +73,87 @@ header h1 {
 }
 .form_container{
     display: grid;
-    background-color: aqua;
-    justify-content:space-between ;
-
-
-
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    
 }
+.form_container h3{
+    text-align: center;
+}
+.form_container table {
+    margin: 0 auto;
+    background: linear-gradient(90deg, rgba(24, 15, 110, 1) 0%, rgba(223, 192, 233, 1) 34%, rgba(122, 37, 141, 1) 63%, rgba(135, 113, 166, 1) 100%);
+    width: 90%;
+    table-layout: auto;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    border-collapse: collapse;
+    overflow: hidden;
+    
+  }
+  
+  .form_container table th {
+    background-color: rgba(24, 15, 110, 1);
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 14px;
+    letter-spacing: 0.05em;
+    padding: 12px;
+  }
+  
+  .form_container table td {
+    color: #fff;
+    font-size: 14px;
+    text-align: center;
+    padding: 12px;
+  }
+  
+  .form_container table tr:nth-child(even) {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+  
+  .form_container table tr:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+  }
 
 
-
-
+  @media (max-width: 1200px) {
+    .form_container table th,
+    .form_container table td {
+      font-size: 12px;
+      padding: 8px;
+      word-break: break-word;
+      white-space: normal;
+      text-align: center;
+    }
+}
+  
+  @media (max-width: 600px) {
+    .form_container table th,
+    .form_container table td {
+      font-size: 10px;
+      padding: 6px;
+    }
+}
 @media (max-width: 768px) {
     .card {
         width: 100%;
     }
+    .form_container {
+        grid-template-columns: 1fr;
+      }
+    .form_container table th,
+  .form_container table td {
+    font-size: 12px;
+    padding: 8px;
+  }
 }
+@media (max-width: 480px) {
+    .form_container table th,
+    .form_container table td {
+      font-size: 10px;
+      padding: 6px;
+      word-break: break-word;
+      white-space: normal;
+    }
+}  

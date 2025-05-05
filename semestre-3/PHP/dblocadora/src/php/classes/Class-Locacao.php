@@ -54,7 +54,7 @@ class Locacao {
 
         if ($resultado->num_rows > 0) {
             echo "<h3>Listagem de Locações</h3>";
-            echo "<table border='1' cellpadding='5'>
+            echo "<table>
                     <tr>
                         <th>Código</th>
                         <th>Cliente (CPF)</th>
