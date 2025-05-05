@@ -35,7 +35,7 @@ include_once '../config/dbconnect.php';
     <!-- Cliente -->
     <div class="form">
         <h3>Cadastro de Cliente</h3>
-        <form action="src/php/global.php" method="post">
+        <form action="../global.php" method="post">
             <input type="text" name="cliente-cpf" placeholder="Seu nome">
             <input type="text" name="nome-cliente" placeholder="Seu CPF">
             <input type="text" name="cliente-endereco" placeholder="Seu endereço">
@@ -49,7 +49,7 @@ include_once '../config/dbconnect.php';
     <!-- Carro -->
     <div class="form">
         <h3>Cadastro de Carro</h3>
-        <form action="src/php/global.php" method="post">
+        <form action="../global.php" method="post">
             <input type="text" name="carro_desc" placeholder="Carro">
             <select name="carro_marca">
                 <option value="">Informe a Marca</option>
@@ -76,7 +76,7 @@ include_once '../config/dbconnect.php';
     <!-- Locação -->
     <div class="form">
         <h3>Cadastro de Locação</h3>
-        <form action="src/php/global.php" method="post">
+        <form action="../global.php" method="post">
             <select name="cliente_loc">
                 <option value="">Informe o Cliente</option>
                 <?php
@@ -120,7 +120,7 @@ include_once '../config/dbconnect.php';
     <!-- Marca -->
     <div class="form">
         <h3>Cadastro de Marca</h3>
-        <form action="src/php/global.php" method="post">
+        <form action="../global.php" method="post">
             <input type="text" name="marca_nome" placeholder="Marca">
             <div class="form-buttons">
                 <input type="submit" name="cadastrar_marca" value="Cadastrar Marca">
