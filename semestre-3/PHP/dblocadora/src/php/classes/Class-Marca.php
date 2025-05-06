@@ -29,7 +29,7 @@ class Marca{
     }
 
     public function listarMarca() {
-        $sql = "SELECT marca_codigo, marca_descricao FROM tbmarca ORDER BY marca_descricao ASC";
+        $sql = "SELECT marca_codigo, marca_descricao FROM tbmarca ORDER BY marca_codigo ASC";
         $resultado = $this->conexao->query($sql);
     
         if ($resultado->num_rows > 0) {
