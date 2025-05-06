@@ -63,8 +63,10 @@ class Locacao {
                         <th>Data de Devolução</th>
                         <th>Veículo</th>
                         <th>Placa</th>
-                        
                         <th>Marca</th>
+                        <th>Deletar</th>
+                        <th>Editar</th>
+
                     </tr>";
 
             foreach ($resultado as $row) {
@@ -86,6 +88,13 @@ class Locacao {
                         <td>$loc_carro_desc</td>
                         <td>$loc_veiculo_placa</td>
                         <td>$loc_marca</td>
+                        <td>$loc_marca</td>
+                        <td>
+                            <form method='post' action='../global.php'>
+                                <input type='hidden' name='codigo_marca' value='$loc_codigo'>
+                                <input type='submit' name='deletar_marca' value='Deletar'>
+                            </form>
+                        </td>
                       </tr>";
             }
 
@@ -93,6 +102,14 @@ class Locacao {
         } else {
             echo "Nenhuma locação encontrada.";
         }
+    }
+    public function deletarLocacao($codigo){
+        $sql = "DELETE FROM tblocacao WHERE locacao_codigo = ?";
+        $stmt = $this->conexao->prepare($sql);
+
+
+
+
     }
 }
 // $loc = new Locacao("", "", "", "", $conexao);
