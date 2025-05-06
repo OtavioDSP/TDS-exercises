@@ -34,7 +34,7 @@ class Marca{
     
         if ($resultado->num_rows > 0) {
             echo "<h3>Listagem de Marcas</h3><table>";
-            echo "<tr><th>Código</th><th>Descrição</th></tr>";
+            echo "<tr><th>Código</th><th>Descrição</th><th>Operações</th></tr>";
     
             foreach ($resultado as $row) {
                 $codigo = $row['marca_codigo'];
@@ -43,6 +43,15 @@ class Marca{
                 echo "<tr>
                         <td>$codigo</td>
                         <td>$descricao</td>
+                        <td>
+                            <form method='post' action='../global.php'>
+                                <input type='hidden' name='codigo_marca' value='$codigo'>
+                                <input type='submit' name='deletar_marca' value='Deletar'>
+                            </form>
+                            
+                        </td>
+                        
+
                       </tr>";
             }
     
@@ -51,6 +60,22 @@ class Marca{
             echo "<p>Nenhuma marca encontrada.</p>";
         }
     }
-    public function deletarMarca($d)
+    public function deletarMarca($codigo){
+        $sql = "DELETE FROM tbmarca WHERE marca_codigo = ?";
+        $stmt = $this->conexao->prepare($sql);
+        $stmt->bind_param('i', $codigo);
+        
+        if($stmt->execute()){
+
+            echo "Marca Deletada";
+
+
+        }else{
+
+            echo "Erro ao deletar". $stmt->error;
+
+        }
+
+    }
 }
 ?>

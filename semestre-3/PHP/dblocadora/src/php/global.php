@@ -39,6 +39,12 @@ if(isset($_POST['cadastrar-cliente'])){
     $nome= ""; $endereco='';
     $cliente = new Cliente($cpf, $nome, $endereco, $conexao);
     $cliente-> deletarCliente($cpf);
+}if(isset($_POST['deletar_marca'])){
+    $codigo = $_POST['codigo_marca'];
+    
+    // Certifique-se de que $conexao foi incluído corretamente no dbconnect.php
+    $marca = new Marca('', $conexao); // Não precisa de descrição para deletar
+    $marca->deletarMarca($codigo);
 }
 
 ?>
