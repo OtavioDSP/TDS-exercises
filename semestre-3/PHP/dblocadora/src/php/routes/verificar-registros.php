@@ -30,24 +30,6 @@ include_once '../config/listagem-constructor.php'
         <h1>Moon Runner<br>Locadora de Veículos</h1>
     </div>
 </header>
-<div class="cards-container">
-    <!-- <form action="src/php/global.php" method="post" class="card">
-        <input type="submit" name="listar-cliente" value="Listar Clientes">
-    </form>
-
-    <form action="src/php/global.php" method="post" class="card">
-        <input type="submit" value="Listar Veículos" name="listar-carro">
-    </form>
-
-    <form action="src/php/global.php" method="post" class="card">
-        <input type="submit" value="Listar Locações" name="listar-locacao">
-    </form>
-
-    <form action="src/php/global.php" method="post" class="card">
-        <input type="submit" name="listar-marca" value="Listar Marcas">
-    </form> -->
-</div>
-
 <div class="form_container">
     <div class="carros-grid">
 <?php
@@ -63,7 +45,7 @@ include_once '../config/listagem-constructor.php'
 
 <?php
         $locacao->listarLocacoes();
-
+    
         $cliente->listarCliente();
 ?>
     </div>

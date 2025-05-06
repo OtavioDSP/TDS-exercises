@@ -33,15 +33,17 @@ class Cliente{
 
     $stmt->close();
     }
-    Public function listarCliente(){
+    public function listarCliente(){
 
 
         $sql = "SELECT cliente_nome, cliente_cpf, cliente_endereco FROM tbcliente";
         
         $resultado = $this->conexao->query($sql);
+      
         if ($resultado->num_rows>0) {
+
             echo "<h3>Listagem de Clientes</h3><table>";
-            echo "<th>Nome</th> <th>CPF</th> <th>Endereço</th>";
+            echo "<th>Nome</th> <th>CPF</th> <th>Endereço</th><th>ações</th><th>excluir</th>";
 
             foreach($resultado as $row){
                 $nm = $row['cliente_nome'];
@@ -52,20 +54,39 @@ class Cliente{
                 <td>$nm</td> 
                 <td>$cpf</td>
                 <td>$end</td>
+
+                <td>
+                    <form method='post' action='../global.php'>
+                        <input type='hidden' name='cpf' value='$cpf'>
+                        <input type='submit' name='delete' value='Deletar'>
+                    </form>
+                </td>
                 
                 
                 </tr>";
             }
 
-                
-
-
 
         }
+       
 
 
 
         
+    }   
+    public function deletarCliente($cpf){
+
+    $sql = "DELETE FROM tbcliente WHERE cliente_cpf = ?";
+    $stmt = $this->conexao->prepare($sql);
+    $stmt->bind_param('s',$cpf);
+    if ($stmt->execute()) {
+        echo "Cliente deletado com sucesso.";
+    } else {
+        echo "Erro ao deletar: " . $stmt->error;
+    }
+
+    $stmt->close();
+
     }
 }
 
