@@ -1,77 +1,100 @@
-<?php 
+<?php
 
-Class Veiculo{
+class Veiculo {
     private $veiculoDesc;
     private $veiculoPlaca;
     private $veiculoMarca;
     private $conexao;
 
-    public function __construct($veiculo_Desc, $veiculo_Marca, $veiculoPlaca, $conexao)
-    {
-        $this->veiculoDesc= $veiculo_Desc;
-        $this->veiculoMarca = $veiculo_Marca;
+    public function __construct($veiculoDesc, $veiculoMarca, $veiculoPlaca, $conexao) {
+        $this->veiculoDesc = $veiculoDesc;
+        $this->veiculoMarca = $veiculoMarca;
         $this->veiculoPlaca = $veiculoPlaca;
         $this->conexao = $conexao;
-        
-
     }
 
-    public function inserirVeiculo(){
-        $sql = "INSERT INTO tbveiculo(veiculo_placa, veiculo_descricao, veiculo_marca) VALUES (?,?,?)";
+    public function inserirVeiculo() {
+        $sql = "INSERT INTO tbveiculo(veiculo_placa, veiculo_descricao, veiculo_marca) VALUES (?, ?, ?)";
         $stmt = $this->conexao->prepare($sql);
-        $stmt->bind_param('ssi', $this->veiculoDesc, $this->veiculoPlaca, $this->veiculoMarca);
-        if($stmt->execute()){
+        $stmt->bind_param('ssi', $this->veiculoPlaca, $this->veiculoDesc, $this->veiculoMarca);
 
-
-            echo "Carro Inserido";
-
-        }else{
-
-            echo "Erro ao Inserir ". $stmt->error;
-
+        if ($stmt->execute()) {
+            echo "Carro inserido com sucesso!";
+        } else {
+            echo "Erro ao inserir: " . $stmt->error;
         }
-
-
     }
-    public function listarVeiculos(){
-        $sql = "SELECT veiculo_placa, veiculo_marca, veiculo_descricao, marca_descricao FROM tbveiculo INNER JOIN tbmarca ON tbveiculo.veiculo_marca = tbmarca.marca_codigo";
-        $resultado = $this->conexao->query($sql);
-        if ($resultado->num_rows>0) {
-            echo "<h3>Listagem de Veículos</h3><table>";
-            echo "<th>Carro</th> <th>Placa</th> <th>Marca</th> <th>Codigo da marca</th>";
 
-            foreach($resultado as $row){
+    public function listarVeiculos() {
+        $sql = "SELECT veiculo_placa, veiculo_marca, veiculo_descricao, marca_descricao 
+                FROM tbveiculo 
+                INNER JOIN tbmarca ON tbveiculo.veiculo_marca = tbmarca.marca_codigo";
+        $resultado = $this->conexao->query($sql);
+
+        if ($resultado->num_rows > 0) {
+            echo "<h3>Listagem de Veículos</h3><table border='1'>";
+            echo "<tr><th>Carro</th><th>Placa</th><th>Marca</th><th>Código da Marca</th><th>Editar</th>
+            <th>Excluir</th>";
+
+            foreach ($resultado as $row) {
                 $desc = $row['veiculo_descricao'];
                 $plc = $row['veiculo_placa'];
                 $marca = $row['marca_descricao'];
                 $cod_marca = $row['veiculo_marca'];
+            
                 echo "<tr>
                 
-                <td>$desc</td> 
-                <td>$plc</td>
-                <td>$marca</td>
-                <td>$cod_marca</td>";
+                        <td>$desc</td>
+                        <td>$plc</td>
+                        <td>$marca</td>
+                        <td>$cod_marca</td>
+                         <td>                            
+                            <form method='post' action='../global.php'>
+                                <input type='hidden' name='codigo_veiculo' value='$plc'>
+                                <input type='submit' name='editar_veiculo' value='Editar'>
+                            </form>
+                        <td>
+
+                            <form method='post' action='../global.php'>
+                                <input type='hidden' name='plc' value='$plc'>
+                                <input type='submit' name='deletar_veiculo' value='Deletar'>
+                            </form>
+                        </td>
+                      </tr>";
             }
 
-            echo"</tr>";
             echo "</table>";
-
-
-
-            
+        } else {
+            echo "<p>Nenhum veículo encontrado.</p>";
         }
     }
-} 
+
+    public function deletarVeiculo($plc) {
+        $sql = "DELETE FROM tbveiculo WHERE veiculo_placa = ?";
+        $stmt = $this->conexao->prepare($sql);
+        $stmt->bind_param('s', $plc);
+
+        if ($stmt->execute()) {
+            echo "Veículo deletado com sucesso!";
+        } else {
+            echo "Erro ao deletar: " . $stmt->error;
+        }
+    }
+
+    public function editarVeiculo($plc,$veiculoDesc){
+        $sql = "UPDATE tbveiculo SET veiculo_descricao = ? WHERE veiculo_placa = ? ";
+        $stmt = $this->conexao->prepare($sql);
+        $stmt->bind_param('s',$veiculoDesc);
+        if ($stmt->execute()) {
+            echo "Veículo editado com sucesso!";
+        } else {
+            echo "Erro ao deletar: " . $stmt->error;
+        }
+        
 
 
 
-
-
-
-
-
-
-
-
+    }
+}
 
 ?>
