@@ -74,6 +74,21 @@ if(isset($_POST['deletar_veiculo'])){
 }
 
 
+if (isset($_POST['atualizar_marca'])) {
+    $nome_marca = $_POST['nome_marca'];
+    $codigo_marca = $_POST['codigo_marca'];
+    echo $nome_marca;
+    echo $codigo_marca;
+
+    // $codigo_marca = $_GET['codigo_marca'];
+} elseif (isset($_POST['codigo_marca'])) {
+    // $codigo_marca = $_POST['codigo_marca'];
+} else {
+    // Se o código da marca não foi passado, redireciona ou exibe uma mensagem de erro
+    // echo "<p>Código da marca inválido.</p>";
+    exit;
+}
+
 
 
 ?>
