@@ -1,11 +1,11 @@
 <?php 
 include_once '../global.php';
-include_once '../config/listagem-constructor.php'
+include_once '../config/listagem-constructor.php';
 
 
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -33,7 +33,7 @@ include_once '../config/listagem-constructor.php'
 <div class="form_container">
     <div class="carros-grid">
 <?php
-        
+       
         $marca->listarMarca();
     
         $carro->listarVeiculos();

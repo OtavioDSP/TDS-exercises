@@ -43,7 +43,7 @@ class Cliente{
         if ($resultado->num_rows>0) {
 
             echo "<h3>Listagem de Clientes</h3><table>";
-            echo "<th>Nome</th> <th>CPF</th> <th>Endereço</th><th>ações</th><th>excluir</th>";
+            echo "<th>Nome</th> <th>CPF</th> <th>Endereço</th><th>Editar</th><th>excluir</th>";
 
             foreach($resultado as $row){
                 $nm = $row['cliente_nome'];
@@ -54,7 +54,12 @@ class Cliente{
                 <td>$nm</td> 
                 <td>$cpf</td>
                 <td>$end</td>
-
+                <td>
+                    <form method='post' action='../global.php'>
+                        <input type='hidden' name='cpf' value='$cpf'>
+                        <input type='submit' name='editar_cliente' value='Editar'>
+                    </form>
+                </td>
                 <td>
                     <form method='post' action='../global.php'>
                         <input type='hidden' name='cpf' value='$cpf'>
@@ -67,6 +72,8 @@ class Cliente{
             }
 
 
+        }else{
+            echo "<p>Nenhum cliente encontrado.</p>";
         }
        
 
@@ -86,6 +93,12 @@ class Cliente{
     }
 
     $stmt->close();
+
+    }
+    public function editarCliente(){
+        $sql = "UPDATE FROM tbcliente WHERE "
+
+
 
     }
 }

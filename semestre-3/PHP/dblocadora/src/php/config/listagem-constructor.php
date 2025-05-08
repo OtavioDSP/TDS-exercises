@@ -1,6 +1,6 @@
 <?php
 $marca_desc = "";
-$marca = new Marca($marca_desc, $conexao);
+$marca = new Marca("", $marca_desc, $conexao);
     
 $carro_desc = ""; $carro_placa=""; $carro_marca="";
 $carro = new Veiculo($carro_placa, $carro_marca, $carro_desc, $conexao);

@@ -32,19 +32,56 @@ if(isset($_POST['cadastrar-cliente'])){
 
 }if(isset($_POST['cadastrar_marca'])){
     $marca_desc = $_POST['marca_nome'];
-    $marca = new Marca($marca_desc, $conexao);
+    $marca = new Marca("", $marca_desc, $conexao);
     $marca->inserirMarca();
+
+
+
 }if(isset($_POST['delete'])){
     $cpf = $_POST['cpf'];
     $nome= ""; $endereco='';
     $cliente = new Cliente($cpf, $nome, $endereco, $conexao);
     $cliente-> deletarCliente($cpf);
+
+
+
 }if(isset($_POST['deletar_marca'])){
     $codigo = $_POST['codigo_marca'];
-    
-    // Certifique-se de que $conexao foi incluído corretamente no dbconnect.php
-    $marca = new Marca('', $conexao); // Não precisa de descrição para deletar
+    $marca = new Marca($codigo,'', $conexao); 
     $marca->deletarMarca($codigo);
+
+
+
+
+}if(isset($_POST['deletar_locacao'])){
+    $loc_codigo = $_POST['loc_codigo'];
+    $locacao = new Locacao('', '', '', '', $conexao); 
+    $locacao->deletarLocacao($loc_codigo);
 }
+
+
+
+
+
+if(isset($_POST['deletar_veiculo'])){
+    $placa = $_POST['plc'];
+    $veiculo = new Veiculo($placa, '', '', $conexao);
+    $veiculo->deletarVeiculo($placa);
+
+
+
+
+}
+
+
+if (isset($_POST['atualizar_marca'])) {
+    $nome_marca = $_POST['nome_marca'];
+    $codigo = $_POST['codigo_marca'];
+
+    $marca = new Marca($codigo, $nome_marca, $conexao);
+    $marca->editarMarca();
+
+} 
+
 
 ?>

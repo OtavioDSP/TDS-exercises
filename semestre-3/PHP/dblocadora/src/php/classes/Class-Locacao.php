@@ -64,8 +64,8 @@ class Locacao {
                         <th>Veículo</th>
                         <th>Placa</th>
                         <th>Marca</th>
-                        <th>Deletar</th>
                         <th>Editar</th>
+                        <th>Excluir</th>
 
                     </tr>";
 
@@ -88,11 +88,16 @@ class Locacao {
                         <td>$loc_carro_desc</td>
                         <td>$loc_veiculo_placa</td>
                         <td>$loc_marca</td>
-                        <td>$loc_marca</td>
+
+                         <td>                            
+                            <form method='post' action='../global.php'>
+                                <input type='hidden' name='$loc_codigo' value='$loc_codigo'>
+                                <input type='submit' name='editar_locacao' value='Editar'>
+                            </form>
                         <td>
                             <form method='post' action='../global.php'>
-                                <input type='hidden' name='codigo_marca' value='$loc_codigo'>
-                                <input type='submit' name='deletar_marca' value='Deletar'>
+                                <input type='hidden' name='loc_codigo' value='$loc_codigo'>
+                                <input type='submit' name='deletar_locacao' value='Deletar'>
                             </form>
                         </td>
                       </tr>";
@@ -103,15 +108,24 @@ class Locacao {
             echo "Nenhuma locação encontrada.";
         }
     }
-    public function deletarLocacao($codigo){
+    public function deletarLocacao($loc_codigo){
         $sql = "DELETE FROM tblocacao WHERE locacao_codigo = ?";
         $stmt = $this->conexao->prepare($sql);
+        $stmt->bind_param('i', $loc_codigo);  
+        if($stmt->execute()){
 
+            echo "locação Deletada";
+
+
+        }else{
+
+            echo "Erro ao deletar". $stmt->error;
+
+        }
 
 
 
     }
 }
-// $loc = new Locacao("", "", "", "", $conexao);
-// $loc->listarLocacoes();
+
 ?>

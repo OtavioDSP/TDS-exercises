@@ -4,8 +4,8 @@ class Marca{
     private $nome_marca;
     private $conexao;
 
-    public function __construct($nome_marca, $conexao){
-
+    public function __construct($marca_codigo, $nome_marca, $conexao){
+        $this->marca_codigo = $marca_codigo;
         $this->nome_marca = $nome_marca;
         $this->conexao = $conexao;
     }
@@ -34,7 +34,10 @@ class Marca{
     
         if ($resultado->num_rows > 0) {
             echo "<h3>Listagem de Marcas</h3><table>";
-            echo "<tr><th>Código</th><th>Descrição</th><th>Operações</th></tr>";
+            echo "<tr><th>Código</th>
+            <th>Descrição</th>
+            <th>Editar</th>
+            <th>Excluir</th>";
     
             foreach ($resultado as $row) {
                 $codigo = $row['marca_codigo'];
@@ -43,6 +46,14 @@ class Marca{
                 echo "<tr>
                         <td>$codigo</td>
                         <td>$descricao</td>
+                        <td>                            
+                            <form method='post' action='../routes/edits.php'>
+                                <input type='hidden' name='codigo' value='$codigo'>
+                                <input type='hidden' name='descricao_marca' value='$descricao'>
+                                <input type='submit' name='editar_marca' value='Editar'>
+                            </form>
+
+                        </td>
                         <td>
                             <form method='post' action='../global.php'>
                                 <input type='hidden' name='codigo_marca' value='$codigo'>
@@ -76,6 +87,20 @@ class Marca{
 
         }
 
+    } public function editarMarca(){
+        $sql = "UPDATE tbmarca SET marca_descricao = ? WHERE marca_codigo  = ?";
+        $stmt = $this->conexao->prepare($sql);
+        $stmt->bind_param('si',$this->nome_marca, $this->marca_codigo);
+        if ($stmt->execute()) {
+            echo "marca editada com sucesso!";
+        } else {
+            echo "Erro ao deletar: " . $stmt->error;
+        }
+        
+
+
+
     }
+
 }
 ?>
