@@ -96,8 +96,9 @@ class Cliente{
 
     }
     public function editarCliente(){
-        $sql = "UPDATE FROM tbcliente WHERE "
-
+        $sql = "UPDATE tbcliente SET tbcliente.cliente_nome = Mario, tbcliente.cliente_endereco = Rua Um WHERE tbcliente.cliente_cpf = 1";
+        $stmt = $this->conexao->prepare($sql);
+        $stmt->bind_param('sss', $this->nome,);
 
 
     }
