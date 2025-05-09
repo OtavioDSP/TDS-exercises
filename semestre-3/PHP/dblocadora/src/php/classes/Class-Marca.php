@@ -1,6 +1,6 @@
 <?php 
 class Marca{
-
+    private $marca_codigo;
     private $nome_marca;
     private $conexao;
 
@@ -47,6 +47,7 @@ class Marca{
                         <td>$codigo</td>
                         <td>$descricao</td>
                         <td>                            
+<<<<<<< HEAD
 
                             <form method='post' action='../routes/edits.php'>
                                 <input type='hidden' name='codigo' value='$codigo'>
@@ -54,6 +55,11 @@ class Marca{
                             <form method='post' action='../global.php'>
                                 <input type='hidden' name='codigo_marca' value='$codigo'>
 
+=======
+                            <form method='post' action='../routes/edits.php'>
+                            <input type='hidden' name='codigo_marca' value='$descricao'>
+                                <input type='hidden' name='codigo_marca' value='$codigo'>
+>>>>>>> 927136e8149478bcf5b783d75e89c62ec192cb2d
                                 <input type='submit' name='editar_marca' value='Editar'>
                             </form>
 
