@@ -56,6 +56,9 @@ class Cliente{
                 <td>$end</td>
                 <td>
                     <form method='post' action='../global.php'>
+                        <input type='hidden' name='entidade' value='cliente'>
+                        <input type='hidden' name='nome_cliente' value='$nm'>
+                        <input type='hidden' name='endereco_cliente' value='$end'>
                         <input type='hidden' name='cpf' value='$cpf'>
                         <input type='submit' name='editar_cliente' value='Editar'>
                     </form>

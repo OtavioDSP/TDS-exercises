@@ -19,7 +19,7 @@
         <h2>Editar Marca</h2>
         <form method="post" action="../global.php">
             <input type="hidden" name="codigo_marca" value="<?php echo $_POST['codigo_marca'] ?? ''; ?>">
-            <input type="hidden" name="marca_descricao" value="<?php echo $_POST['$descricao'] ?? ''; ?>">
+            <input type="hidden" name="marca_descricao" value="<?php echo $_POST['descricao'] ?? ''; ?>">
 
             <div class="form-group">
                 <label for="nome_marca">Nova Descrição da Marca:</label>

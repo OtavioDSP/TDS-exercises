@@ -50,6 +50,7 @@ class Veiculo {
                         <td>$cod_marca</td>
                          <td>                            
                             <form method='post' action='../global.php'>
+                                <input type='hidden' name='entidade' value='veiculo'>
                                 <input type='hidden' name='codigo_veiculo' value='$plc'>
                                 <input type='submit' name='editar_veiculo' value='Editar'>
                             </form>
@@ -90,10 +91,7 @@ class Veiculo {
         } else {
             echo "Erro ao deletar: " . $stmt->error;
         }
-        
-
-
-
+    
     }
 }
 
