@@ -90,7 +90,8 @@ class Locacao {
                         <td>$loc_marca</td>
 
                          <td>                            
-                            <form method='post' action='../global.php'>
+                            <form method='post' action='../routes/edits.php'>
+                                <input type='hidden' name='entidade' value='locacao'>
                                 <input type='hidden' name='$loc_codigo' value='$loc_codigo'>
                                 <input type='submit' name='editar_locacao' value='Editar'>
                             </form>

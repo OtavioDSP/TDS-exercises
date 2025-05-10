@@ -74,6 +74,19 @@ if (isset($_POST['atualizar_marca'])) {
     $codigo = $_POST['codigo_marca'];
     $marca = new Marca($codigo, $nome_marca, $conexao);
     $marca->editarMarca();
+
+
+
+
+
+}if (isset($_POST['atualizar_cliente'])) {
+    $cpf = $_POST['cpf'];
+    $nome = $_POST['nome'];
+    $endereco = $_POST['endereco'];
+
+    $veiculo = new Cliente($nome, "", $endereco, $conexao);
+    $veiculo->editarCliente();
+    # code...
 }
 
 

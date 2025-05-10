@@ -55,7 +55,7 @@ class Cliente{
                 <td>$cpf</td>
                 <td>$end</td>
                 <td>
-                    <form method='post' action='../global.php'>
+                    <form method='post' action='../routes/edits.php'>
                         <input type='hidden' name='entidade' value='cliente'>
                         <input type='hidden' name='nome_cliente' value='$nm'>
                         <input type='hidden' name='endereco_cliente' value='$end'>
@@ -99,10 +99,14 @@ class Cliente{
 
     }
     public function editarCliente(){
-        $sql = "UPDATE tbcliente SET tbcliente.cliente_nome = Mario, tbcliente.cliente_endereco = Rua Um WHERE tbcliente.cliente_cpf = 1";
+        $sql = "UPDATE tbcliente SET tbcliente.cliente_nome = ?, tbcliente.cliente_endereco = ? WHERE tbcliente.cliente_cpf = ?";
         $stmt = $this->conexao->prepare($sql);
-        $stmt->bind_param('sss', $this->nome,);
-
+        $stmt->bind_param('sss', $this->nome,$this->cpf, $this->endereco);
+        if($stmt->execute()){
+            echo "Cliente atualizado com sucesso.";
+        }else{
+            echo "Erro ao atualizar cliente: " . $stmt->error;
+        }
 
     }
 }

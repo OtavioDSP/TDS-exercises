@@ -49,7 +49,7 @@ class Veiculo {
                         <td>$marca</td>
                         <td>$cod_marca</td>
                          <td>                            
-                            <form method='post' action='../global.php'>
+                          <form method='post' action='../routes/edits.php'>
                                 <input type='hidden' name='entidade' value='veiculo'>
                                 <input type='hidden' name='codigo_veiculo' value='$plc'>
                                 <input type='submit' name='editar_veiculo' value='Editar'>
