@@ -19,7 +19,7 @@ if (isset($_POST['cadastrar-carro'])) {
     $carro_desc = $_POST['carro_desc'];
     $carro_marca = $_POST['carro_marca'];
     $carro_placa = $_POST['carro_placa'];
-    $veiculo = new Veiculo($carro_placa, $carro_marca, $carro_desc, $conexao);
+    $veiculo = new Veiculo($carro_desc, $carro_placa, $carro_marca, $conexao);
     $veiculo->inserirVeiculo();
 }
 
@@ -74,6 +74,13 @@ if (isset($_POST['atualizar_marca'])) {
     $codigo = $_POST['codigo_marca'];
     $marca = new Marca($codigo, $nome_marca, $conexao);
     $marca->editarMarca();
+}
+if (isset($_POST['atualizar_veiculo'])) {
+    $plc = $_POST['placa'];
+    $desc = $_POST['descricao'];
+    $veiculo = new Veiculo($desc, $plc, '', $conexao);
+    $veiculo->editarVeiculo();
+
 
 
 
@@ -83,10 +90,17 @@ if (isset($_POST['atualizar_marca'])) {
     $cpf = $_POST['cpf'];
     $nome = $_POST['nome'];
     $endereco = $_POST['endereco'];
+    
+    $cliente = new Cliente($cpf, $nome, $endereco, $conexao);
+    $cliente->editarCliente();
+    
+}if(isset($_POST['atualizar_locacao'])){
+    $dt_inicio = $_POST['loc_dt_inicio'];
+    $dt_fim = $_POST['loc_dt_fim'];
+    $codigo = $_POST['loc_codigo'];
+    $locacao = new Locacao($codigo,'' ,'', $dt_inicio, $dt_fim, $conexao); 
+    $locacao->editarLocacao();
 
-    $veiculo = new Cliente($nome, "", $endereco, $conexao);
-    $veiculo->editarCliente();
-    # code...
 }
 
 

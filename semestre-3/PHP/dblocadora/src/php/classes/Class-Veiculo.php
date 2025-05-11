@@ -6,7 +6,7 @@ class Veiculo {
     private $veiculoMarca;
     private $conexao;
 
-    public function __construct($veiculoDesc, $veiculoMarca, $veiculoPlaca, $conexao) {
+    public function __construct($veiculoDesc, $veiculoPlaca,$veiculoMarca, $conexao) {
         $this->veiculoDesc = $veiculoDesc;
         $this->veiculoMarca = $veiculoMarca;
         $this->veiculoPlaca = $veiculoPlaca;
@@ -32,7 +32,7 @@ class Veiculo {
         $resultado = $this->conexao->query($sql);
 
         if ($resultado->num_rows > 0) {
-            echo "<h3>Listagem de Veículos</h3><table border='1'>";
+            echo "<h3>Listagem de Veículos</h3><table>";
             echo "<tr><th>Carro</th><th>Placa</th><th>Marca</th><th>Código da Marca</th><th>Editar</th>
             <th>Excluir</th>";
 
@@ -51,7 +51,7 @@ class Veiculo {
                          <td>                            
                           <form method='post' action='../routes/edits.php'>
                                 <input type='hidden' name='entidade' value='veiculo'>
-                                <input type='hidden' name='codigo_veiculo' value='$plc'>
+                                <input type='hidden' name='veiculo_placa' value='$plc'>
                                 <input type='submit' name='editar_veiculo' value='Editar'>
                             </form>
                         <td>
@@ -82,10 +82,10 @@ class Veiculo {
         }
     }
 
-    public function editarVeiculo($plc,$veiculoDesc){
+    public function editarVeiculo(){
         $sql = "UPDATE tbveiculo SET veiculo_descricao = ? WHERE veiculo_placa = ? ";
         $stmt = $this->conexao->prepare($sql);
-        $stmt->bind_param('s',$veiculoDesc);
+        $stmt->bind_param('ss', $this->veiculoDesc, $this->veiculoPlaca);
         if ($stmt->execute()) {
             echo "Veículo editado com sucesso!";
         } else {

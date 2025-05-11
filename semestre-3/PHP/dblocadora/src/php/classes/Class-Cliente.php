@@ -7,7 +7,7 @@ class Cliente{
     private $endereco;
     private $conexao;
 
-    public function __construct($nome, $cpf, $endereco, $conexao){
+    public function __construct($cpf, $nome, $endereco, $conexao){
 
         $this->nome = $nome;
         $this->cpf = $cpf;
@@ -57,8 +57,7 @@ class Cliente{
                 <td>
                     <form method='post' action='../routes/edits.php'>
                         <input type='hidden' name='entidade' value='cliente'>
-                        <input type='hidden' name='nome_cliente' value='$nm'>
-                        <input type='hidden' name='endereco_cliente' value='$end'>
+                        
                         <input type='hidden' name='cpf' value='$cpf'>
                         <input type='submit' name='editar_cliente' value='Editar'>
                     </form>
@@ -99,9 +98,9 @@ class Cliente{
 
     }
     public function editarCliente(){
-        $sql = "UPDATE tbcliente SET tbcliente.cliente_nome = ?, tbcliente.cliente_endereco = ? WHERE tbcliente.cliente_cpf = ?";
+        $sql = "UPDATE tbcliente SET cliente_nome = ?, cliente_endereco = ? WHERE cliente_cpf = ?";
         $stmt = $this->conexao->prepare($sql);
-        $stmt->bind_param('sss', $this->nome,$this->cpf, $this->endereco);
+        $stmt->bind_param('sss', $this->nome, $this->endereco, $this->cpf);
         if($stmt->execute()){
             echo "Cliente atualizado com sucesso.";
         }else{

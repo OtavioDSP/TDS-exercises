@@ -49,7 +49,6 @@ class Marca{
                         <td>                            
                             <form method='post' action='../routes/edits.php'>
                                 <input type='hidden' name='entidade' value='marca'>
-                                <input type='hidden' name='codigo' value='$codigo'>
                                 <input type='hidden' name='descricao_marca' value='$descricao'>
                                 <input type='hidden' name='codigo_marca' value='$codigo'>
 

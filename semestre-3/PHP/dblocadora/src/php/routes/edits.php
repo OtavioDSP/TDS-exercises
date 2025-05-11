@@ -22,6 +22,23 @@
     <title>Editar</title>
 </head>
 <body>
+<header>
+    <div class="header-left">
+        <img src="../../img/logo.png" alt="Logo" class="logo">
+    </div>
+
+    <div class="header-center">
+        <nav class="nav-links">
+            <a href="../../../index.html">Início</a>
+            <a href="verificar-registros.php">Verificar Registros</a>
+        </nav>
+    </div>
+
+    <div class="header-right">
+        <h1>Moon Runner<br>Locadora de Veículos</h1>
+    </div>
+    
+</header>
 
     <form action="../global.php" method="POST">
         <?php
@@ -38,14 +55,10 @@
                     break;
 
                 case 'veiculo':
-                    echo inputHidden('placa', $dados['placa'] ?? '');
+                    echo inputHidden('placa', $dados['veiculo_placa'] ?? '');
                     echo "<div class='form-group'>
                             <label>Descrição:</label>
                             <input type='text' name='descricao' value='" . ($dados['descricao'] ?? '') . "'>
-                          </div>
-                          <div class='form-group'>
-                            <label>Marca:</label>
-                            <input type='text' name='marca' value='" . ($dados['marca'] ?? '') . "'>
                           </div>";
                     echo "<button type='submit' name='atualizar_veiculo'>Atualizar Veículo</button>";
                     break;
@@ -64,14 +77,14 @@
                     break;
 
                 case 'locacao':
-                    echo inputHidden('codigo', $dados['codigo'] ?? '');
+                    echo inputHidden('loc_codigo', $dados['loc_codigo'] ?? '');
                     echo "<div class='form-group'>
                             <label>Nova Data de Início:</label>
-                            <input type='date' name='dt_inicio' value='" . ($dados['dt_inicio'] ?? '') . "'>
+                            <input type='date' name='loc_dt_inicio' value='" . ($dados['loc_dt_inicio'] ?? '') . "'>
                           </div>
                           <div class='form-group'>
                             <label>Nova Data de Fim:</label>
-                            <input type='date' name='dt_fim' value='" . ($dados['dt_fim'] ?? '') . "'>
+                            <input type='date' name='loc_dt_fim' value='" . ($dados['loc_dt_fim'] ?? '') . "'>
                           </div>";
                     echo "<button type='submit' name='atualizar_locacao'>Atualizar Locação</button>";
                     break;

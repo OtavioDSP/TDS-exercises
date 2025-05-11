@@ -1,13 +1,15 @@
 <?php 
 
 class Locacao {
+    private $loc_codigo;
     private $veiculoPlaca;
     private $clienteCpf;
     private $dataLocacao;
     private $dataDevolucao;
     private $conexao;
 
-    public function __construct($veiculoPlaca, $clienteCpf, $dataLocacao, $dataDevolucao, $conexao) {
+    public function __construct($loc_codigo,$veiculoPlaca, $clienteCpf, $dataLocacao, $dataDevolucao, $conexao) {
+        $this->loc_codigo = $loc_codigo;
         $this->veiculoPlaca = $veiculoPlaca;
         $this->clienteCpf = $clienteCpf;
         $this->dataLocacao = $dataLocacao;
@@ -92,7 +94,9 @@ class Locacao {
                          <td>                            
                             <form method='post' action='../routes/edits.php'>
                                 <input type='hidden' name='entidade' value='locacao'>
-                                <input type='hidden' name='$loc_codigo' value='$loc_codigo'>
+                                <input type='hidden' name='loc_codigo' value='$loc_codigo'>
+                                <input type='hidden' name='loc_dt-inicio' value='$loc_dt_inicio'>
+                                <input type='hidden' name='loc_dt-fim' value='$loc_dt_fim'>
                                 <input type='submit' name='editar_locacao' value='Editar'>
                             </form>
                         <td>
@@ -127,6 +131,17 @@ class Locacao {
 
 
     }
-}
+    public function editarLocacao(){
+        $sql = "UPDATE tblocacao SET locacao_data_inicio = ?, locacao_data_fim = ? WHERE locacao_codigo = ?";
+        $stmt = $this->conexao->prepare($sql);   
+        $stmt->bind_param('ssi',$this->dataLocacao, $this->dataDevolucao, $this->loc_codigo);
+        if($stmt->execute()){
+            echo "Locação editada com sucesso!";
+        }else{
+            echo "Erro ao editar locação: " . $stmt->error;
+        }
 
+
+    }
+}
 ?>
