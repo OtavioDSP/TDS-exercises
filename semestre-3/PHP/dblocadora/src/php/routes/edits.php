@@ -23,25 +23,26 @@
 </head>
 <body>
 <header>
-    <div class="header-left">
-        <img src="../../img/logo.png" alt="Logo" class="logo">
-    </div>
-
-    <div class="header-center">
-        <nav class="nav-links">
-            <a href="../../../index.html">Início</a>
-            <a href="verificar-registros.php">Verificar Registros</a>
-        </nav>
-    </div>
-
-    <div class="header-right">
-        <h1>Moon Runner<br>Locadora de Veículos</h1>
-    </div>
+    <header>
+        <div class="header-left">
+            <img src="../../../src/img/logo.png" alt="Logo" class="logo">
+        </div>
     
-</header>
+        <div class="header-center">
+            <nav class="nav-links">
+                <a href="../../index.html">Início</a>
+                <a href="cadastrar.php">Cadastrar Veículos</a>
+                <a href="registros.php">Cadastrar Veículos</a>
+            </nav>
+        </div>
+    
+        <div class="header-right">
+            <h1>Moon Runner<br>Locadora de Veículos</h1>
+        </div>
+    </header>
 
     <form action="../global.php" method="POST">
-        <?php
+                <?php
             echo inputHidden('entidade', $entidade);
 
             switch ($entidade) {

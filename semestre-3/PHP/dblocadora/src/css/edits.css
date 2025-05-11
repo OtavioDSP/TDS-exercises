@@ -1,9 +1,13 @@
-body {
-    font-family: sans-serif;
-    background-color: #f4f4f4;
+*{
     margin: 0;
     padding: 0;
-    min-height: 100vh;
+    box-sizing: border-box;
+}
+body {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 header {
@@ -13,7 +17,7 @@ header {
     justify-content: center;
     align-items: center;
     width: 100%;
-    padding: 20px 10px;
+    padding: 26px 10px;
 }
 
 .header-left,
@@ -28,6 +32,7 @@ header {
 .header-left {
     justify-content: flex-start;
 }
+
 .header-right {
     justify-content: flex-end;
     text-align: center;
@@ -35,97 +40,39 @@ header {
 
 .logo {
     height: 50px;
+    position:relative;
+    float:right;
+    filter: brightness(1);
     transition: transform 0.3s ease;
+    
 }
 .logo:hover {
     filter: brightness(0) invert(1);
-    transform: scale(1.25);
-}
+    transform: scale(1.25); 
 
+}
 header h1 {
     font-size: 24px;
     margin: 0;
-    text-align: right;
 }
 
 .nav-links {
     display: flex;
     gap: 15px;
+    justify-content: center;
+    align-items: center;
 }
 
 .nav-links a {
     color: white;
     text-decoration: none;
     font-weight: bold;
-    padding: 6px 12px;
+    padding: 5px 10px;
     background-color: rgba(0, 0, 0, 0.2);
     border-radius: 5px;
     transition: background-color 0.3s ease;
 }
+
 .nav-links a:hover {
     background-color: rgba(0, 0, 0, 0.4);
-}
-
-/* Form container */
-form {
-    max-width: 400px;
-    margin: 40px auto;
-    padding: 30px;
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-}
-
-.form-group {
-    margin-bottom: 20px;
-}
-label {
-    display: block;
-    margin-bottom: 6px;
-    color: #444;
-    font-weight: bold;
-}
-
-input[type="text"],
-input[type="date"] {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    font-size: 16px;
-    box-sizing: border-box;
-}
-
-/* Botões */
-button[type="submit"] {
-    background: linear-gradient(90deg, rgba(122, 37, 141, 1), rgba(223, 192, 233, 1));
-    color: white;
-    padding: 12px 20px;
-    border: none;
-    border-radius: 6px;
-    font-weight: bold;
-    cursor: pointer;
-    font-size: 16px;
-    width: 100%;
-    transition: all 0.3s ease;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-}
-button[type="submit"]:hover {
-    background: linear-gradient(90deg, rgba(135, 113, 166, 1), rgba(122, 37, 141, 1));
-    transform: scale(1.03);
-}
-
-.error-message {
-    color: red;
-    margin-top: 10px;
-}
-.back-link {
-    display: block;
-    margin-top: 20px;
-    text-align: center;
-    color: #007bff;
-    text-decoration: none;
-}
-.back-link:hover {
-    text-decoration: underline;
 }
