@@ -73,7 +73,7 @@ class Cliente{
                 </tr>";
             }
 
-
+            echo "</table>";
         }else{
             echo "<p>Nenhum cliente encontrado.</p>";
         }

@@ -76,3 +76,49 @@ header h1 {
 .nav-links a:hover {
     background-color: rgba(0, 0, 0, 0.4);
 }
+form {
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 20px;
+    background: linear-gradient(90deg, rgba(24, 15, 110, 1) 0%, rgba(223, 192, 233, 1) 50%, rgba(122, 37, 141, 1) 100%);
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.form-group {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    font-weight: bold;
+    color: white;
+    margin-bottom: 8px;
+}
+
+.form-group input[type="text"],
+.form-group input[type="date"] {
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    outline: none;
+    font-size: 16px;
+    background: rgba(255,255,255,0.9);
+}
+
+button[type="submit"] {
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    font-weight: bold;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+button[type="submit"]:hover {
+    background: rgba(255, 255, 255, 0.4);
+    transform: scale(1.05);
+}

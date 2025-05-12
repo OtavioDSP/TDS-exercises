@@ -31,23 +31,26 @@ include_once '../config/listagem-constructor.php';
     </div>
 </header>
 <div class="form_container">
-    <div class="carros-grid">
-<?php
-       
-        $marca->listarMarca();
-    
-        $carro->listarVeiculos();
-        
-?>
+    <div class="tabelas-superiores">
+        <!-- Marca -->
+        <div>
+            <?php $marca->listarMarca(); ?>
+        </div>
 
+        <!-- Carro -->
+        <div>
+            <?php $carro->listarVeiculos(); ?>
+        </div>
+
+        <!-- Cliente -->
+        <div>
+            <?php $cliente->listarCliente(); ?>
+        </div>
     </div>
-    <div class="clientes-grid">
 
-<?php
-        $locacao->listarLocacoes();
-    
-        $cliente->listarCliente();
-?>
+    <!-- Locações (embaixo) -->
+    <div class="locacoes-grid">
+        <?php $locacao->listarLocacoes(); ?>
     </div>
 </div>
 

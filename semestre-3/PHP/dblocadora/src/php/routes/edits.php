@@ -22,7 +22,6 @@
     <title>Editar</title>
 </head>
 <body>
-<header>
     <header>
         <div class="header-left">
             <img src="../../../src/img/logo.png" alt="Logo" class="logo">
@@ -32,7 +31,7 @@
             <nav class="nav-links">
                 <a href="../../index.html">Início</a>
                 <a href="cadastrar.php">Cadastrar Veículos</a>
-                <a href="registros.php">Cadastrar Veículos</a>
+                <a href="verificar-registros.php">Verificar Registros</a>
             </nav>
         </div>
     
