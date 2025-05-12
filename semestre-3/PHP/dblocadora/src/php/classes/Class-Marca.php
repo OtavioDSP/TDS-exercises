@@ -1,6 +1,6 @@
 <?php 
 class Marca{
-
+    private $marca_codigo;
     private $nome_marca;
     private $conexao;
 
