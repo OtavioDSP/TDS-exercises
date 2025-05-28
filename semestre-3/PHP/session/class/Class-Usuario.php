@@ -1,10 +1,15 @@
 <?php
 
-class Usuario{
+class Usuario {
 
-    private Login
-    private Senha
-
+    private $login;
+    private $senha;
+    private $conexao;
+    
+    public function __construct($login, $senha, $conexao)
+    {
+        
+    }
 
 
 }
