@@ -2,7 +2,8 @@
 $host ="localhost";
 $password ="";  
 $user ="root"; 
-$db = "session-atv";
+// $db = "session-atv";
+$db = 'bdlogin';
 
 $conexao = new mysqli($host, $user, $password, $db);
 
