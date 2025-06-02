@@ -2,6 +2,7 @@
 include_once 'src/banco/dbconnect.php';
 include_once 'src/class/Class-Usuario.php';
 // Iniciando a sessão
+
 session_start();
 ?>
 <!DOCTYPE html>
@@ -25,7 +26,7 @@ session_start();
         <label>Login: <input type="text" name="loginEnt"/></label>
         <label>Senha: <input type="password" name="senhaEnt"/></label>
         <input type="submit" name="entrar" value="Enviar"/>
-    </for
+    </form>
     
 <?php
     if (isset($_POST['cadastrar'])) {
@@ -35,21 +36,26 @@ session_start();
         $usuario->insereUsuario();
 
         $_SESSION['login'] = $login;
-        $_SESSION['senha'] = $senha;
+        $_SESSION['tempo'] = time();
+    
+        header("Location:src/routes/userpage.php");
 
 
         
 
-        echo'<br><br><br><button><a href="src/routes/userpage.php">Pagina de Usuario</a></button>';
+       
     }
     elseif (isset($_POST['entrar'])) {
         $login = $_POST['loginEnt'];
         $senha = $_POST['senhaEnt'];
 
         $_SESSION['login'] = $login;
-        $_SESSION['senha'] = $senha;
-        echo "As variáveis de sessão foram definidas.";
-        echo'<br><br><br><button><a href="src/routes/userpage.php">Pagina de Usuario</a></button>';
+        $_SESSION['tempo'] = time() + $timeout;
+    
+        header("Location:src/routes/userpage.php");
+       
+
+
     
     }
    
