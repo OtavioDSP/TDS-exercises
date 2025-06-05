@@ -34,7 +34,7 @@ class Usuario {
     }public function validaUsuario(){
 
         $sql = "SELECT login FROM usuarios WHERE login = ?, senha = ?";
-        $resultado = $this->conexao->query($sql);
+        $stmt = $this->conexao->query($sql);
 
         $stmt->bind_param('ss',$login,$senha);
         $stmt->execute();
