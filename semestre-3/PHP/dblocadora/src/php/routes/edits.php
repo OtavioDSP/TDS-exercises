@@ -29,7 +29,7 @@
     
         <div class="header-center">
             <nav class="nav-links">
-                <a href="../../home.php">Início</a>
+                <a href="home.php">Início</a>
                 <a href="cadastrar.php">Cadastrar Veículos</a>
                 <a href="verificar-registros.php">Verificar Registros</a>
             </nav>

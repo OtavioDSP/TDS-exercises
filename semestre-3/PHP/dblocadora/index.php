@@ -29,7 +29,7 @@ if(isset($_POST['cad_adm'])){
     $_SESSION['login'] = $login;
     $_SESSION['senha'] = $senha;
 
-    header("Location:home.html");
+    header("Location:src/php/routes/home.php");
 }
 
 
