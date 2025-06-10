@@ -1,5 +1,7 @@
 <?php
-    session_start();
+    include_once 'src/php/config/dbconnect.php';
+    include_once 'src/php/classes/Class-Adm.php';
+    session_start(); 
 ?>
 
 <!DOCTYPE html>
@@ -28,7 +30,8 @@ if(isset($_POST['cad_adm'])){
 
     $_SESSION['login'] = $login;
     $_SESSION['senha'] = $senha;
-
+    $adm = new adm('',$login,$senha,$conexao);
+    $adm->insereAdm();
     header("Location:src/php/routes/home.php");
 }
 
