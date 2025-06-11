@@ -28,6 +28,25 @@ class adm{
         }
 
     }
+    public function buscaAdm(){
+
+        $sql = "SELECT nome FROM adm WHERE nome  = ? AND senha = ?";
+
+        $stmt = $this->conexao->query($sql);
+
+        $stmt->bind_param('ss', $this->nome, $this->senha);
+
+        $stmt->execute();
+
+        if ($stmt->num_rows == 1) {
+
+            $stmt->fetch();
+
+            $_SESSION['nome'] = $nome;
+            
+        }
+
+    }
     
 
 

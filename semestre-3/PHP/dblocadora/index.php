@@ -1,5 +1,6 @@
 <?php
     session_start();
+    include_once 'php/classes/Class-Adm.php';
 ?>
 
 <!DOCTYPE html>
@@ -12,24 +13,49 @@
 <body>
     
 <form method="post" action="">
+    <h2>log</h2>
+    <label for="nome_adm_log"></label>
+    <input type="text" name="nome_adm_log" id="">
+    <label for="senha_adm_log"></label>
+    <input type="text" name="senha_adm_log" id="">
+    <input type="submit" value="Enviar" name="adm_log">
 
-    <label for="nome_adm"></label>
-    <input type="text" name="nome_adm" id="">
-    <label for="senha_adm"></label>
-    <input type="text" name="senha_adm" id="">
+</form>
+
+
+<form method="post" action="">
+    <h1>cad</h1>
+    <label for="nome_adm_cad"></label>
+    <input type="text" name="nome_adm_cad" id="">
+    <label for="senha_adm_cad"></label>
+    <input type="text" name="senha_adm_cad" id="">
     <input type="submit" value="Enviar" name="cad_adm">
 
 </form>
 
 <?php 
 if(isset($_POST['cad_adm'])){
-    $login = $_POST['nome_adm'];
-    $senha = $_POST['senha_adm'];
+    $login = $_POST['nome_adm_cad'];
+    $senha = $_POST['senha_adm_cad'];
 
     $_SESSION['login'] = $login;
     $_SESSION['senha'] = $senha;
+    
 
+
+    $adm = new adm('', $login, $senha, $conexao);
+    $adm->insereAdm()
     header("Location:home.html");
+}
+if(isset($_POST['adm_log'])){
+    $login = $_POST['nome_adm_log'];
+    $senha = $_POST['senha_adm_log'];
+
+    if($login == $_SESSION['login'] && $senha == $_SESSION['senha']){
+        header("Location:home.html");
+    }else{
+        echo "Login ou senha incorretos!";
+    }
 }
 
 

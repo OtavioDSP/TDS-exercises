@@ -31,6 +31,7 @@ class Usuario {
         }
 
     $stmt->close();
+
     }public function validaUsuario(){
 
         $sql = "SELECT login FROM usuarios WHERE login = ?, senha = ?";
@@ -42,6 +43,7 @@ class Usuario {
         if($stmt->num_rows == 1){
 
             $stmt->bind_param('s',$login);
+            
             $stmt->fetch();
 
             $_SESSION['login'];
