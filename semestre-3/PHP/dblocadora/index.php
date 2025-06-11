@@ -1,12 +1,7 @@
 <?php
-<<<<<<< HEAD
-    session_start();
-    include_once 'php/classes/Class-Adm.php';
-=======
     include_once 'src/php/config/dbconnect.php';
     include_once 'src/php/classes/Class-Adm.php';
     session_start(); 
->>>>>>> 08465453cb8529a0f68ecea8cae4f52e91e708e9
 ?>
 
 <!DOCTYPE html>
@@ -46,18 +41,18 @@ if(isset($_POST['cad_adm'])){
 
     $_SESSION['login'] = $login;
     $_SESSION['senha'] = $senha;
-<<<<<<< HEAD
+
     
 
 
     $adm = new adm('', $login, $senha, $conexao);
     $adm->insereAdm()
     header("Location:home.html");
-=======
+
     $adm = new adm('',$login,$senha,$conexao);
     $adm->insereAdm();
     header("Location:src/php/routes/home.php");
->>>>>>> 08465453cb8529a0f68ecea8cae4f52e91e708e9
+
 }
 if(isset($_POST['adm_log'])){
     $login = $_POST['nome_adm_log'];

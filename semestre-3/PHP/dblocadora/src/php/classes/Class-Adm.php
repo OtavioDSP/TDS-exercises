@@ -24,7 +24,7 @@ class adm{
           if ($stmt->execute()) {
             echo "Locação inserida com sucesso!";
         } else {
-            echo "Erro ao inserir locação: " . $stmt->error;
+            echo "Erro ao inserir admin: " . $stmt->error;
         }
 
     }
