@@ -16,7 +16,7 @@ class adm{
 
     }
     public function insereAdm(){
-        $sql = "INSERT INTO adm (id, nome, senha) VALUES (?,?,?)";
+        $sql = "INSERT INTO adm(nome, senha) VALUES (?,?)";
 
         $stmt = $this->conexao->query($sql);
         $stmt->bind_param('ss',$this->nome, $this->senha);

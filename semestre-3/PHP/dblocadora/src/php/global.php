@@ -29,7 +29,7 @@ if (isset($_POST['cadastrar-locacao'])) {
     $loc_cliente = $_POST['cliente_loc'];
     $loc_dt_inicio = $_POST['dt_inicio'];
     $loc_dt_fim = $_POST['dt_fim'];
-    $locacao = new Locacao($loc_veiculo, $loc_cliente, $loc_dt_inicio, $loc_dt_fim, $conexao);
+    $locacao = new Locacao('',$loc_veiculo, $loc_cliente, $loc_dt_inicio, $loc_dt_fim, $conexao);
     $locacao->inserirLocacao();
 }
 
@@ -57,7 +57,7 @@ if (isset($_POST['deletar_marca'])) {
 // Deletar Locação
 if (isset($_POST['deletar_locacao'])) {
     $loc_codigo = $_POST['loc_codigo'];
-    $locacao = new Locacao('', '', '', '', $conexao); 
+    $locacao = new Locacao('', '', '', '', '', $conexao); 
     $locacao->deletarLocacao($loc_codigo);
 }
 

@@ -21,7 +21,7 @@ include_once '../config/listagem-constructor.php';
 
     <div class="header-center">
         <nav class="nav-links">
-            <a href="../../../home.php">Início</a>
+            <a href="home.php">Início</a>
             <a href="cadastrar.php">Cadastrar</a>
         </nav>
     </div>
