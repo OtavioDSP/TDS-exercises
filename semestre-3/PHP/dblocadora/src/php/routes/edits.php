@@ -1,4 +1,5 @@
 <?php
+    session_start(); 
     include_once '../classes/Class-Cliente.php';
     include_once '../classes/Class-Veiculo.php';
     include_once '../classes/Class-Locacao.php';
