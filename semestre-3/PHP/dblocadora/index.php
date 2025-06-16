@@ -2,7 +2,8 @@
     include_once 'src/php/config/dbconnect.php';
     include_once 'src/php/classes/Class-Adm.php';
     
-    session_start(); 
+    session_start();
+    $tempo_maximo = 300;  
 ?>
 
 <!DOCTYPE html>
@@ -40,6 +41,8 @@ if(isset($_POST['cad_adm'])){
     $login = $_POST['nome_adm_cad'];
     $senha = $_POST['senha_adm_cad'];
 
+    
+
     $_SESSION['login'] = $login;
     $_SESSION['senha'] = $senha;
 
@@ -51,6 +54,7 @@ if(isset($_POST['cad_adm'])){
 if(isset($_POST['adm_log'])){
     $login = $_POST['nome_adm_log'];
     $senha = $_POST['senha_adm_log'];
+    $tempo_inativo = time() - $_SESSION['ultimo_acesso'];
     $adm = new adm('', $login, $senha, $conexao);
     $loginValido = $adm->buscaAdm();    
    
