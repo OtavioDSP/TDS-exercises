@@ -5,6 +5,7 @@
     include_once '../classes/Class-Locacao.php';
     include_once '../classes/Class-Marca.php';
     include_once '../config/dbconnect.php';
+    include_once '../config/logout.php';
 
     $entidade = $_POST['entidade'] ?? '';
     $dados = $_POST;

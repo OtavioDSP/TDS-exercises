@@ -1,6 +1,7 @@
 <?php
     include_once 'src/php/config/dbconnect.php';
     include_once 'src/php/classes/Class-Adm.php';
+    
     session_start(); 
 ?>
 
@@ -55,16 +56,14 @@ if(isset($_POST['adm_log'])){
    
     if($loginValido){
         
-        $_SESSION['login'];
-        $_SESSION['senha'];
+        $_SESSION['login'] = $login;
+    
         header("Location:src/php/routes/home.php");
         
         exit();
     }else{
         echo "Login ou senha incorretos!";
 
-        echo $login;
-        echo $senha;
 
     }
 }

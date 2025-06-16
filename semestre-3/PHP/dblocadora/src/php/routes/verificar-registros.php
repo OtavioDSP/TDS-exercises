@@ -1,5 +1,6 @@
 <?php 
 include_once '../global.php';
+include_once '../config/logout.php';
 include_once '../config/listagem-constructor.php';
 
 session_start(); 

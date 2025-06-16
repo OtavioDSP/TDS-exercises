@@ -1,6 +1,6 @@
 <?php
 include_once '../config/dbconnect.php';
-
+include_once '../config/logout.php';
 session_start(); 
 ?>
 

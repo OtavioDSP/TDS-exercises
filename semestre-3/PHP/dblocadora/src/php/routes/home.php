@@ -1,3 +1,9 @@
+<?php 
+
+include_once '../config/logout.php';
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

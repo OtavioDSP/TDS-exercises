@@ -16,7 +16,7 @@ class adm{
 
     }
     public function insereAdm(){
-        $sql = "INSERT INTO adm(nome, senha) VALUES (?,?)";
+        $sql = "INSERT INTO admins (nome, senha) VALUES (?,?)";
 
         $stmt = $this->conexao->prepare($sql);
         $stmt->bind_param('ss',$this->nome, $this->senha);
@@ -30,7 +30,7 @@ class adm{
     }
     public function buscaAdm(){
 
-        $sql = "SELECT nome FROM adm WHERE nome  = ? AND senha = ?";
+        $sql = "SELECT nome FROM admins WHERE nome  = ? AND senha = ?";
 
         $stmt = $this->conexao->prepare($sql);
 
@@ -41,12 +41,8 @@ class adm{
         $stmt->store_result();
 
         if($stmt->num_rows>0){
-
-          
             
             $stmt->fetch();
-            
-            $_SESSION['login'];
 
             return true;
 
