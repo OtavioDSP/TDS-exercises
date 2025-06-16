@@ -18,7 +18,7 @@ class adm{
     public function insereAdm(){
         $sql = "INSERT INTO adm(nome, senha) VALUES (?,?)";
 
-        $stmt = $this->conexao->query($sql);
+        $stmt = $this->conexao->prepare($sql);
         $stmt->bind_param('ss',$this->nome, $this->senha);
 
           if ($stmt->execute()) {
@@ -32,18 +32,29 @@ class adm{
 
         $sql = "SELECT nome FROM adm WHERE nome  = ? AND senha = ?";
 
-        $stmt = $this->conexao->query($sql);
+        $stmt = $this->conexao->prepare($sql);
 
         $stmt->bind_param('ss', $this->nome, $this->senha);
 
         $stmt->execute();
+        
+        $stmt->store_result();
 
-        if ($stmt->num_rows == 1) {
+        if($stmt->num_rows>0){
 
-            $stmt->fetch();
-
-            $_SESSION['nome'] = $nome;
+          
             
+            $stmt->fetch();
+            
+            $_SESSION['login'];
+
+            return true;
+
+
+        }else{
+
+            echo "Erro". $stmt->error;
+
         }
 
     }

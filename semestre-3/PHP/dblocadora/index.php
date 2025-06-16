@@ -42,13 +42,6 @@ if(isset($_POST['cad_adm'])){
     $_SESSION['login'] = $login;
     $_SESSION['senha'] = $senha;
 
-    
-
-
-    $adm = new adm('', $login, $senha, $conexao);
-    $adm->insereAdm()
-    header("Location:home.html");
-
     $adm = new adm('',$login,$senha,$conexao);
     $adm->insereAdm();
     header("Location:src/php/routes/home.php");
@@ -57,11 +50,22 @@ if(isset($_POST['cad_adm'])){
 if(isset($_POST['adm_log'])){
     $login = $_POST['nome_adm_log'];
     $senha = $_POST['senha_adm_log'];
-
-    if($login == $_SESSION['login'] && $senha == $_SESSION['senha']){
-        header("Location:home.html");
+    $adm = new adm('', $login, $senha, $conexao);
+    $loginValido = $adm->buscaAdm();    
+   
+    if($loginValido){
+        
+        $_SESSION['login'];
+        $_SESSION['senha'];
+        header("Location:src/php/routes/home.php");
+        
+        exit();
     }else{
         echo "Login ou senha incorretos!";
+
+        echo $login;
+        echo $senha;
+
     }
 }
 
