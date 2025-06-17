@@ -3,11 +3,10 @@ const qtdQuartos = () => {
     document.getElementById('placeholder').innerText = num;
     return num;
 };
-const led = ()=>{
-    if(qtdQuartos == 0){
-        document.getElementById('led').background.color = "blue";
-    }else{
-        document.getElementById('led').style.color = "green";
+const led = (qtdQuartos)=>{
+    if(qtdQuartos != 0){
+        document.getElementById('led').style.background = "green";
+        document.getElementById('led').style.boxShadow = "0 0 10px green"; 
     }
 }
 const atualizar = () => {
@@ -15,4 +14,6 @@ const atualizar = () => {
     led(valor);
 };
 
+
+console.log(qtdQuartos())
 window.onload = atualizar();
