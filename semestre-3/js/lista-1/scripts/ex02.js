@@ -1,4 +1,11 @@
-const acendeLampada = () => {
-    document.getElementById('lampada').style.backgroundImage = "url(../imgs/lampada_on.jpg)";
-    console.log("funciona")
+elements = document.querySelectorAll('.lampada');
+bgLampada = window.getComputedStyle(lampada).backgroundImage;
+const mudaEstado = (url, bg) => {
+    
+
+
+   
+    
 }  
+
+// console.log(acendeLampada())
