@@ -2,5 +2,15 @@
     height: 350px;
     width: 350px;
     background-repeat: no-repeat;
-    background-image: url(../imgs/lampada_off.jpg);
+    background-image: url('../imgs/lampada_off.jpg');
+}
+.interruptor {
+    width: 100px;
+    height: 150px;
+    background-image: url(../imgs/interruptor_off.jpg);
+    background-repeat: no-repeat;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: transform 0.2s;
 }
