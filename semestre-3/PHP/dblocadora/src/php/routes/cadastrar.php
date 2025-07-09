@@ -1,7 +1,11 @@
 <?php
 include_once '../config/dbconnect.php';
-include_once '../config/logout.php';
 session_start(); 
+
+if (!isset($_SESSION['login'])) {
+    header("Location: ../../../index.php");
+    exit();
+}
 ?>
 
 <!DOCTYPE html>
@@ -11,8 +15,10 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro Geral - Moon Runner</title>
     <link rel="stylesheet" href="../../css/cadastrarstyle.css">
+    <link rel="stylesheet" href="../../css/darkmode.css">
 </head>
 <body>
+    <button id="modo-noturno-btn" class="dark-toggle-btn">Modo Noturno</button>
 
 <header>
     <div class="header-left">
@@ -132,5 +138,6 @@ session_start();
 
 </div>
 
+<script src="../../js/darkmode.js"></script>
 </body>
 </html>
