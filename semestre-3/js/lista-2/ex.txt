@@ -1,0 +1,14 @@
+ – Número Positivo, Negativo ou Zero
+Crie um script em JavaScript que permita digitarmos um número. Ao clicarmos em um botão, o programa deve verificar se o número é positivo, negativo ou zero, exibindo a mensagem correspondente na janela do navegador.
+
+2 – Verificar Maioridade
+Desenvolva um script no qual devemos informar uma idade, e ao clicarmos em um botão, o programa deve indicar se a idade corresponde a maior de idade (18 anos ou mais) ou menor de idade.
+
+3 – Calcular o Quadrado de um Número
+Crie um script que receba um número, digitado pelo usuário e, ao acionar o botão, calcule e exiba o quadrado desse número no navegador.
+
+4 – Verificar se o Número é Par ou Ímpar
+Desenvolva um script que nos permita inserir um número. Ao clicar em um botão, deverá verificar e informar se o número é par ou ímpar.
+
+5 – Soma de Dois Números
+Elabore um script que solicite dois números. A sugestão é ter um botão, então ao clicar no botão, deverá ser calculado e mostrado a soma dos dois valores digitados.
