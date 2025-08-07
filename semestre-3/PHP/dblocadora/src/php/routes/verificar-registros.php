@@ -1,10 +1,13 @@
 <?php 
 include_once '../global.php';
-include_once '../config/logout.php';
 include_once '../config/listagem-constructor.php';
 
 session_start(); 
 
+if (!isset($_SESSION['login'])) {
+    header("Location: ../../../index.php");
+    exit();
+}
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -13,8 +16,10 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Verificar Registros - Moon Runner</title>
     <link rel="stylesheet" href="../../css/verificarstyle.css">
+    <link rel="stylesheet" href="../../css/darkmode.css">
 </head>
 <body>
+    <button id="modo-noturno-btn" class="dark-toggle-btn">Modo Noturno</button>
 
 <header>
     <div class="header-left">
@@ -51,14 +56,11 @@ session_start();
     </div>
 
     <!-- Locações (embaixo) -->
-    <div class="locacoes-grid">
+<div class="locacoes-grid">
         <?php $locacao->listarLocacoes(); ?>
     </div>
 </div>
 
-
-
-
-
+<script src="../../js/darkmode.js"></script>
 </body>
 </html>
