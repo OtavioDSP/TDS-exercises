@@ -164,6 +164,25 @@ table form input[type="submit"]:hover {
     }
 }
 @media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        padding: 15px;
+    }
+
+    .header-left,
+    .header-center,
+    .header-right {
+        justify-content: center;
+        text-align: center;
+        width: 100%;
+        padding: 5px 0;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        gap: 10px;
+    }
+
     .card {
         width: 100%;
     }
@@ -184,4 +203,4 @@ table form input[type="submit"]:hover {
       word-break: break-word;
       white-space: normal;
     }
-}  
+}
