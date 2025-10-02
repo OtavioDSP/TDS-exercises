@@ -17,7 +17,7 @@
    <property name="geometry">
     <rect>
      <x>280</x>
-     <y>180</y>
+     <y>100</y>
      <width>47</width>
      <height>13</height>
     </rect>
@@ -49,19 +49,6 @@
     <string>Gato</string>
    </property>
   </widget>
-  <widget class="QLabel" name="label_3">
-   <property name="geometry">
-    <rect>
-     <x>280</x>
-     <y>120</y>
-     <width>81</width>
-     <height>16</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Idade do gato</string>
-   </property>
-  </widget>
   <widget class="QLineEdit" name="lineGato">
    <property name="geometry">
     <rect>
@@ -76,19 +63,9 @@
    <property name="geometry">
     <rect>
      <x>330</x>
-     <y>180</y>
+     <y>100</y>
      <width>221</width>
      <height>20</height>
-    </rect>
-   </property>
-  </widget>
-  <widget class="QSpinBox" name="spGatoIdade">
-   <property name="geometry">
-    <rect>
-     <x>370</x>
-     <y>120</y>
-     <width>42</width>
-     <height>22</height>
     </rect>
    </property>
   </widget>
@@ -118,7 +95,7 @@
     <string>cafe</string>
    </property>
   </widget>
-  <widget class="QListWidget" name="listWidget">
+  <widget class="QListWidget" name="lista_gato">
    <property name="geometry">
     <rect>
      <x>190</x>
@@ -157,8 +134,8 @@
   <widget class="QPushButton" name="btnAdicionar">
    <property name="geometry">
     <rect>
-     <x>470</x>
-     <y>120</y>
+     <x>390</x>
+     <y>160</y>
      <width>75</width>
      <height>23</height>
     </rect>
