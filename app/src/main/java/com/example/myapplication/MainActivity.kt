@@ -64,9 +64,9 @@ class MainActivity : AppCompatActivity() {
             }
             if (cbLogoAudiPreto.isChecked){
 
-                somar = 9.000
+                somar += 9.000
             }
-            Total.text = "Total: R$ %.2f".format(somar)
+            Total.text = "Total: R$ %.3f".format(somar)
 
 
         }
